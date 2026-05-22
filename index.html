@@ -1,1 +1,486 @@
-<h1>Coming Soon</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calvin Priice — Official Site</title>
+<meta name="description" content="Calvin Priice — Multi-genre recording artist based in Los Angeles. Stream music, book shows, and stay connected.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#000000;
+  --black2:#0d0d0d;
+  --sky:#7BBDE8;
+  --sky2:#5AAEE0;
+  --text:#e1e1e1;
+  --muted:rgba(225,225,225,0.5);
+  --border:rgba(255,255,255,0.1);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--text);font-size:14px;line-height:1.55;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:22px 0 18px 1.5vw;
+  background:rgba(0,0,0,0.96);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-size:13px;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text);line-height:1.1;
+}
+.nav-right{display:flex;align-items:flex-start;padding-right:2.5vw;}
+.nav-links{display:flex;flex-direction:column;align-items:flex-end;gap:0;list-style:none;}
+.nav-links li a{
+  display:block;font-size:13px;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;
+  cursor:pointer;padding:2px 0;transition:color 0.2s;line-height:1.6;
+}
+.nav-links li a:hover,.nav-links li a.active{color:var(--text);}
+.nav-book{color:var(--sky)!important;}
+
+/* ── PAGES ── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ── HERO ── */
+.home-hero{
+  height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;
+}
+.home-hero-bg{position:absolute;inset:0;}
+.home-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0.55;}
+.home-hero-fade{position:absolute;inset:0;background:linear-gradient(to top,#000 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.1) 100%);}
+.home-hero-content{position:relative;z-index:2;padding:0 3vw 5vh;}
+.hero-eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;}
+.hero-name{font-size:clamp(3.5rem,8vw,7rem);font-weight:300;letter-spacing:0.06em;text-transform:uppercase;line-height:0.92;margin-bottom:1.5rem;color:var(--text);}
+.hero-name strong{font-weight:600;}
+.hero-sub{font-size:13px;color:var(--muted);max-width:360px;line-height:1.8;margin-bottom:2rem;}
+.hero-btns{display:flex;gap:0.75rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.btn-fill{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.7rem 1.6rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;text-decoration:none;display:inline-block;}
+.btn-fill:hover{background:var(--sky2);}
+.btn-outline{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;background:transparent;color:var(--muted);padding:0.7rem 1.6rem;border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block;}
+.btn-outline:hover{border-color:var(--sky);color:var(--sky);}
+.hero-platforms{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.plat-link{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.plat-link:hover{color:var(--text);}
+.scroll-hint{position:absolute;bottom:2.5rem;right:3vw;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.scroll-line{width:1px;height:36px;background:rgba(255,255,255,0.15);}
+.scroll-text{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;}
+
+/* ── PHOTO GRID ── */
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.05);}
+.photo-item{overflow:hidden;aspect-ratio:3/4;position:relative;}
+.photo-item.wide{grid-column:span 2;aspect-ratio:16/9;}
+.photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s,opacity 0.3s;opacity:0.75;}
+.photo-item:hover img{transform:scale(1.04);opacity:1;}
+
+/* ── EMAIL BAND ── */
+.email-band{background:var(--black2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:4rem 3vw;flex-wrap:wrap;}
+.email-band-left .band-title{font-size:1.3rem;font-weight:300;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;}
+.email-band-left p{font-size:12px;color:var(--muted);}
+.email-form{display:flex;flex:0 0 420px;max-width:100%;}
+.email-input{flex:1;background:transparent;border:1px solid var(--border);border-right:none;padding:0.85rem 1.2rem;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.email-input::placeholder{color:var(--muted);}
+.email-input:focus{border-color:var(--sky);}
+.email-btn{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.85rem 1.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background 0.2s;}
+.email-btn:hover{background:var(--sky2);}
+
+/* ── MUSIC PAGE ── */
+.music-page{background:var(--black);padding-top:80px;}
+.page-header{padding:3rem 3vw 2rem;}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:0.5rem;}
+.section-heading{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;}
+.music-list-container{padding:0 1.5vw 5rem;}
+.music-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0;}
+.music-item{cursor:pointer;display:block;text-decoration:none;color:inherit;transition:opacity 0.2s;padding:12px;}
+.music-item:hover{opacity:0.75;}
+.music-item figure{margin:0;}
+.music-item-art{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.music-item-art-placeholder{width:100%;aspect-ratio:1/1;background:var(--black2);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.music-item-art-placeholder span{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+figcaption.music-item-name{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);margin-top:8px;line-height:1.3;}
+.platforms-section{padding:0 3vw 5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.plat-card{background:var(--black);padding:2.5rem 2rem;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background 0.2s;}
+.plat-card:hover{background:var(--black2);}
+.plat-card-left .plat-name{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);margin-bottom:0.2rem;}
+.plat-card-left .plat-sub{font-size:11px;color:var(--muted);}
+.plat-arrow{font-size:18px;color:var(--sky);}
+
+/* ── ABOUT ── */
+.about-split{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;}
+.about-img-side{overflow:hidden;position:relative;}
+.about-img-side img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.about-text-side{padding:5rem 4vw;background:var(--black2);border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;}
+.about-eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;}
+.about-name{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;line-height:1;margin-bottom:1.5rem;}
+.about-quote{font-size:1.2rem;font-weight:300;font-style:italic;color:var(--sky);line-height:1.6;border-left:2px solid var(--sky);padding-left:1.2rem;margin-bottom:1.5rem;}
+.about-body{font-size:13px;color:var(--muted);line-height:1.9;margin-bottom:1rem;}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.about-tag{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border);color:var(--muted);padding:0.3rem 0.8rem;}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.blog-card{background:var(--black);cursor:pointer;transition:background 0.2s;}
+.blog-card:hover{background:var(--black2);}
+.blog-thumb{height:200px;overflow:hidden;}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;opacity:0.7;transition:transform 0.5s,opacity 0.3s;}
+.blog-card:hover .blog-thumb img{transform:scale(1.04);opacity:0.9;}
+.blog-info{padding:1.5rem;}
+.blog-date{font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--sky);margin-bottom:0.5rem;}
+.blog-title{font-size:14px;font-weight:500;margin-bottom:0.4rem;line-height:1.3;}
+.blog-excerpt{font-size:12px;color:var(--muted);line-height:1.7;}
+.blog-coming{grid-column:span 3;padding:3rem;text-align:center;font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+
+/* ── BOOKING ── */
+.booking-hero{height:40vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
+.booking-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top 30%;opacity:0.3;}
+.booking-hero-fade{position:absolute;inset:0;background:linear-gradient(to top,#000 0%,transparent 60%);}
+.booking-hero-content{position:relative;z-index:2;padding:0 3vw 3rem;}
+.booking-body{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
+.booking-info-side{padding:4rem 3vw;border-right:1px solid var(--border);background:var(--black2);}
+.booking-form-side{padding:4rem 3vw;background:var(--black);}
+.contact-block{margin-bottom:2rem;}
+.contact-label{font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--sky);margin-bottom:0.3rem;}
+.contact-val{font-size:13px;}
+.contact-val a{color:var(--text);text-decoration:none;}
+.contact-val a:hover{color:var(--sky);}
+.form-group{margin-bottom:1.2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.f-input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:0.9rem 0;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.f-input::placeholder{color:var(--muted);}
+.f-input:focus{border-bottom-color:var(--sky);}
+.f-textarea{resize:none;min-height:90px;}
+.submit-btn{margin-top:1rem;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.9rem 2.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;}
+.submit-btn:hover{background:var(--sky2);}
+
+/* ── FOOTER ── */
+footer{background:var(--black2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:28px 3vw;flex-wrap:wrap;gap:1rem;}
+.footer-name{font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:1rem;line-height:1.1;}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap;}
+.footer-links a{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--sky);}
+.footer-copy{font-size:10px;color:var(--muted);letter-spacing:0.05em;}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .about-split{grid-template-columns:1fr;}
+  .about-img-side{height:60vw;}
+  .booking-body{grid-template-columns:1fr;}
+  .platforms-section{grid-template-columns:1fr;}
+  .blog-grid{grid-template-columns:1fr;}
+  .blog-coming{grid-column:span 1;}
+  .email-form{flex:1 1 100%;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-name{font-size:clamp(2.5rem,12vw,4rem);}
+  .music-list{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Calvin<br>Priice</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+      <li><a onclick="showPage('music')" id="nav-music">Music</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+      <li><a onclick="showPage('booking')" class="nav-book" id="nav-booking">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<div class="page active" id="page-home" style="padding-top:80px;">
+  <div class="home-hero" style="margin-top:-80px;">
+    <div class="home-hero-bg">
+      <!-- HERO IMAGE: replace src with your preferred photo -->
+      <img src="images/hero.jpg" alt="Calvin Priice">
+    </div>
+    <div class="home-hero-fade"></div>
+    <div class="home-hero-content">
+      <div class="hero-eyebrow">Recording Artist · Los Angeles</div>
+      <h1 class="hero-name">Calvin<br><strong>Priice</strong></h1>
+      <p class="hero-sub">New York native. Dominican &amp; Puerto Rican roots. Multi-genre recording artist where faith, love, and real life collide.</p>
+      <div class="hero-btns">
+        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="btn-fill">Stream Now</a>
+        <a onclick="showPage('booking')" class="btn-outline">Book a Show</a>
+      </div>
+      <div class="hero-platforms">
+        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="plat-link">Spotify</a>
+        <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" class="plat-link">Apple Music</a>
+        <a href="https://www.youtube.com/@CalvinPriice" target="_blank" class="plat-link">YouTube</a>
+        <a href="https://instagram.com/calvinpriice" target="_blank" class="plat-link">Instagram</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <div class="scroll-text">Scroll</div>
+    </div>
+  </div>
+
+  <!-- Home photo grid -->
+  <div class="photo-grid">
+    <div class="photo-item wide"><img src="images/photo-1.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item"><img src="images/photo-2.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item"><img src="images/photo-3.jpg" alt="Calvin Priice"></div>
+  </div>
+
+  <!-- Email signup -->
+  <div class="email-band">
+    <div class="email-band-left">
+      <div class="band-title">Stay in the loop</div>
+      <p>New music, show dates, exclusive drops. First to know.</p>
+    </div>
+    <!-- TODO: Replace action URL with your Mailchimp embed URL -->
+    <form class="email-form" action="https://YOUR-MAILCHIMP-URL-HERE" method="post" target="_blank">
+      <input class="email-input" type="email" name="EMAIL" placeholder="Your email address" required>
+      <button class="email-btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════ MUSIC ══════════ -->
+<div class="page" id="page-music">
+  <div class="music-page">
+    <div class="page-header">
+      <div class="eyebrow">Discography</div>
+      <h1 class="section-heading">Music</h1>
+    </div>
+
+    <div class="music-list-container">
+      <div class="music-list">
+        <!--
+          HOW TO ADD TRACKS — copy this block for each release:
+
+          <a href="YOUR-STREAMING-LINK" target="_blank" class="music-item">
+            <figure>
+              <img class="music-item-art" src="images/track-name.jpg" alt="Track Name">
+              <figcaption class="music-item-name">Track Name</figcaption>
+            </figure>
+          </a>
+
+          For releases without artwork yet, use the placeholder:
+
+          <a href="YOUR-STREAMING-LINK" target="_blank" class="music-item">
+            <figure>
+              <div class="music-item-art-placeholder"><span>Coming Soon</span></div>
+              <figcaption class="music-item-name">Track Name</figcaption>
+            </figure>
+          </a>
+        -->
+
+        <!-- PLACEHOLDER TRACKS — replace with your real releases -->
+        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="music-item">
+          <figure>
+            <img class="music-item-art" src="images/hero.jpg" alt="Calvin Priice">
+            <figcaption class="music-item-name">Latest Release</figcaption>
+          </figure>
+        </a>
+        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="music-item">
+          <figure>
+            <div class="music-item-art-placeholder"><span>Coming Soon</span></div>
+            <figcaption class="music-item-name">New Single</figcaption>
+          </figure>
+        </a>
+        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="music-item">
+          <figure>
+            <div class="music-item-art-placeholder"><span>Coming Soon</span></div>
+            <figcaption class="music-item-name">New Single</figcaption>
+          </figure>
+        </a>
+        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="music-item">
+          <figure>
+            <div class="music-item-art-placeholder"><span>Coming Soon</span></div>
+            <figcaption class="music-item-name">New Single</figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+
+    <!-- Streaming platforms -->
+    <div class="platforms-section">
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="plat-card">
+        <div class="plat-card-left">
+          <div class="plat-name">Spotify</div>
+          <div class="plat-sub">Stream all releases</div>
+        </div>
+        <div class="plat-arrow">→</div>
+      </a>
+      <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" class="plat-card">
+        <div class="plat-card-left">
+          <div class="plat-name">Apple Music</div>
+          <div class="plat-sub">Listen on Apple</div>
+        </div>
+        <div class="plat-arrow">→</div>
+      </a>
+      <a href="https://www.youtube.com/@CalvinPriice" target="_blank" class="plat-card">
+        <div class="plat-card-left">
+          <div class="plat-name">YouTube</div>
+          <div class="plat-sub">Videos &amp; visuals</div>
+        </div>
+        <div class="plat-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div class="page" id="page-about" style="padding-top:80px;">
+  <div class="about-split">
+    <div class="about-img-side">
+      <img src="images/about.jpg" alt="Calvin Priice">
+    </div>
+    <div class="about-text-side">
+      <div class="about-eyebrow">The Story</div>
+      <div class="about-name">Calvin<br>Priice</div>
+      <div class="about-quote">"Faith over everything."</div>
+      <p class="about-body">New York native with Dominican and Puerto Rican roots, Calvin Priice is a multi-genre recording artist whose music lives at the intersection of faith, love, and real life. His sound doesn't fit in one box — and that's exactly the point.</p>
+      <p class="about-body">His music reflects personal growth, spiritual depth, and the kind of honesty that makes people feel less alone. Whether reflecting on love, finding closure, or speaking his truth — every track carries weight.</p>
+      <div class="about-tags">
+        <span class="about-tag">New York</span>
+        <span class="about-tag">Dominican &amp; Puerto Rican</span>
+        <span class="about-tag">Multi-Genre</span>
+        <span class="about-tag">Faith-Driven</span>
+        <span class="about-tag">Independent</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="photo-grid">
+    <div class="photo-item"><img src="images/gallery-1.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item"><img src="images/gallery-2.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item"><img src="images/gallery-3.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item"><img src="images/gallery-4.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item wide"><img src="images/gallery-5.jpg" alt="Calvin Priice" style="object-position:center 20%;"></div>
+    <div class="photo-item"><img src="images/gallery-6.jpg" alt="Calvin Priice"></div>
+    <div class="photo-item"><img src="images/gallery-7.jpg" alt="Calvin Priice"></div>
+  </div>
+</div>
+
+<!-- ══════════ BLOG ══════════ -->
+<div class="page" id="page-blog" style="padding-top:80px;">
+  <div class="page-header">
+    <div class="eyebrow">Updates &amp; Stories</div>
+    <h1 class="section-heading">The Blog</h1>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-thumb"><img src="images/blog-1.jpg" alt="Why I Make Music"></div>
+      <div class="blog-info">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">Why I Make Music</div>
+        <div class="blog-excerpt">The story behind the sound — where it started and where it's going...</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb"><img src="images/blog-2.jpg" alt="Faith & the Music Industry"></div>
+      <div class="blog-info">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">Faith &amp; the Music Industry</div>
+        <div class="blog-excerpt">Staying grounded when the world tells you to move differently...</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb"><img src="images/blog-3.jpg" alt="New York Raised Me"></div>
+      <div class="blog-info">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">New York Raised Me</div>
+        <div class="blog-excerpt">How growing up in New York shaped my sound, my style, and my story...</div>
+      </div>
+    </div>
+    <div class="blog-coming">Blog posts dropping soon — subscribe below to get notified first</div>
+  </div>
+
+  <div class="email-band">
+    <div class="email-band-left">
+      <div class="band-title">Stay Updated</div>
+      <p>Get notified when new posts and music drop.</p>
+    </div>
+    <form class="email-form" action="https://YOUR-MAILCHIMP-URL-HERE" method="post" target="_blank">
+      <input class="email-input" type="email" name="EMAIL" placeholder="Your email address" required>
+      <button class="email-btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════ BOOKING ══════════ -->
+<div class="page" id="page-booking" style="padding-top:80px;">
+  <div class="booking-hero">
+    <img src="images/booking.jpg" alt="Calvin Priice">
+    <div class="booking-hero-fade"></div>
+    <div class="booking-hero-content">
+      <div class="eyebrow">Work Together</div>
+      <h1 class="section-heading">Book Calvin Priice</h1>
+    </div>
+  </div>
+  <div class="booking-body">
+    <div class="booking-info-side">
+      <p style="font-size:13px;color:var(--muted);line-height:1.9;max-width:340px;margin-bottom:2.5rem;">Available for concerts, private events, features, collaborations, and brand partnerships. Let's build something real.</p>
+      <div class="contact-block">
+        <div class="contact-label">Booking</div>
+        <div class="contact-val"><a href="mailto:booking@calvinpriice.com">booking@calvinpriice.com</a></div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Music &amp; Features</div>
+        <div class="contact-val"><a href="mailto:music@calvinpriice.com">music@calvinpriice.com</a></div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">General</div>
+        <div class="contact-val"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></div>
+      </div>
+    </div>
+    <!-- TODO: Replace action with a real form handler e.g. Netlify Forms or Formspree -->
+    <form class="booking-form-side" name="booking" method="POST" data-netlify="true">
+      <div class="form-row form-group">
+        <input class="f-input" type="text" name="name" placeholder="Your name" required>
+        <input class="f-input" type="email" name="email" placeholder="Email address" required>
+      </div>
+      <div class="form-row form-group">
+        <input class="f-input" type="text" name="event-type" placeholder="Event type">
+        <input class="f-input" type="text" name="date" placeholder="Date / Timeframe">
+      </div>
+      <div class="form-group">
+        <input class="f-input" type="text" name="location" placeholder="Location / Venue">
+      </div>
+      <div class="form-group">
+        <textarea class="f-input f-textarea" name="message" placeholder="Tell me more about the event or project..."></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Send Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Calvin<br>Priice</div>
+  <div class="footer-links">
+    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank">Spotify</a>
+    <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank">Apple Music</a>
+    <a href="https://instagram.com/calvinpriice" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@CalvinPriice" target="_blank">YouTube</a>
+  </div>
+  <div class="footer-copy">© 2025 Calvin Priice. All rights reserved.</div>
+</footer>
+
+<script>
+function showPage(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.getElementById('nav-'+p).classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
