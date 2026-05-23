@@ -85,6 +85,10 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
 .footer-links a:hover{color:var(--white);}
 .footer-copy{font-size:10px;color:var(--muted);letter-spacing:0.05em;}
 
+/* keep the sidewalk-stencil framing centered so the name always shows */
+.blog-card-image img[src*="phantom-sidewalk-stencil"],
+.blog-post-hero img[src*="phantom-sidewalk-stencil"]{object-position:center center;}
+
 @media(max-width:768px){
   nav{padding:20px 24px;}
   .blog-hero{padding:120px 24px 60px;}
