@@ -46,23 +46,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:fle
 .photo-item.wide{grid-column:span 2;aspect-ratio:16/9;}
 .photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s,opacity 0.3s;opacity:0.75;}
 .photo-item:hover img{transform:scale(1.04);opacity:1;}
-.email-band{background:var(--black2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:4rem 3vw;flex-wrap:wrap;}
-.email-band-left .band-title{font-size:1.3rem;font-weight:300;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;}
-.email-band-left p{font-size:12px;color:var(--muted);}
-.email-form{display:flex;flex:0 0 420px;max-width:100%;}
-.email-input{flex:1;background:transparent;border:1px solid var(--border);border-right:none;padding:0.85rem 1.2rem;font-size:13px;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
-.email-input::placeholder{color:var(--muted);}
-.email-input:focus{border-color:var(--sky);}
-.email-btn{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.85rem 1.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background 0.2s;}
-.email-btn:hover{background:var(--sky2);}
-.success-msg{display:none;font-size:13px;color:var(--sky);font-weight:500;padding:0.85rem 0;}
-/* SUBSCRIBE SECTION */
-.subscribe-section{background:var(--black2);border-top:1px solid var(--border);padding:5rem 3vw;text-align:center;}
-.subscribe-section .eyebrow{display:block;margin-bottom:0.5rem;}
-.subscribe-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.8rem;}
-.subscribe-section p{font-size:13px;color:var(--muted);margin-bottom:2rem;}
-.gform-wrapper{max-width:500px;margin:0 auto;background:transparent;}
-.gform-wrapper iframe{border:none;width:100%;background:transparent;filter:invert(1) hue-rotate(180deg);min-height:160px;}
+/* NEWSLETTER SECTION */
+.newsletter-section{background:var(--black2);border-top:1px solid var(--border);padding:5rem 3vw;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;}
+.newsletter-left .nl-label{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:0.5rem;}
+.newsletter-left h2{font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;}
+.newsletter-left p{font-size:12px;color:var(--muted);}
+.newsletter-right{flex:0 0 380px;max-width:100%;}
+/* Override MailerLite styles to match site */
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper{background-color:transparent!important;border:none!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4{color:var(--text)!important;font-family:'Inter',sans-serif!important;font-size:0px!important;margin:0!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p{color:var(--muted)!important;font-family:'Inter',sans-serif!important;font-size:0!important;margin:0!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent{margin:0!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input{background-color:#111!important;color:var(--text)!important;border-color:var(--border)!important;border-radius:0!important;font-family:'Inter',sans-serif!important;font-size:13px!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::placeholder{color:var(--muted)!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button{background-color:var(--sky)!important;color:#000!important;font-family:'Inter',sans-serif!important;font-size:10px!important;font-weight:600!important;letter-spacing:0.18em!important;text-transform:uppercase!important;border-radius:0!important;border:none!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover{background-color:var(--sky2)!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4{color:var(--sky)!important;font-family:'Inter',sans-serif!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p{color:var(--muted)!important;font-family:'Inter',sans-serif!important;}
+.newsletter-right #mlb2-41679917.ml-form-embedContainer{margin:0!important;}
 .music-page{background:var(--black);padding-top:80px;}
 .page-header{padding:3rem 3vw 2rem;}
 .eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:0.5rem;}
@@ -123,6 +124,7 @@ figcaption.music-item-name{font-size:11px;font-weight:500;letter-spacing:0.08em;
 .f-textarea{resize:none;min-height:90px;}
 .submit-btn{margin-top:1rem;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.9rem 2.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;}
 .submit-btn:hover{background:var(--sky2);}
+.success-msg{display:none;font-size:13px;color:var(--sky);font-weight:500;padding:0.85rem 0;}
 footer{background:var(--black2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:28px 3vw;flex-wrap:wrap;gap:1rem;}
 .footer-name{font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:1rem;line-height:1.1;}
 .footer-links{display:flex;gap:2rem;flex-wrap:wrap;}
@@ -136,7 +138,8 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   .platforms-section{grid-template-columns:1fr;}
   .blog-grid{grid-template-columns:1fr;}
   .blog-coming{grid-column:span 1;}
-  .email-form{flex:1 1 100%;}
+  .newsletter-section{flex-direction:column;}
+  .newsletter-right{flex:1 1 100%;}
   .form-row{grid-template-columns:1fr;}
   .hero-name{font-size:clamp(2.5rem,12vw,4rem);}
   .music-list{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
@@ -158,6 +161,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </nav>
 
+<!-- HOME -->
 <div class="page active" id="page-home" style="padding-top:80px;">
   <div class="home-hero" style="margin-top:-80px;">
     <div class="home-hero-bg">
@@ -191,16 +195,52 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
     <div class="photo-item"><img src="images/photo-3.jpg" alt="Calvin Priice"></div>
   </div>
 
-  <div class="subscribe-section">
-    <span class="eyebrow">Stay Connected</span>
-    <h2>Join the Fanbase</h2>
-    <p>New music, show dates, and exclusive drops. Be first to know.</p>
-    <div class="gform-wrapper">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_x5QD7j6A98DnZCkhP-ZGpIMuwHEDCQ5uV2RUfkOmPahPPg/viewform?embedded=true" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <!-- MAILERLITE NEWSLETTER SECTION -->
+  <div class="newsletter-section">
+    <div class="newsletter-left">
+      <div class="nl-label">Stay Connected</div>
+      <h2>Join the Fanbase</h2>
+      <p>New music, show dates &amp; exclusive drops. First to know.</p>
+    </div>
+    <div class="newsletter-right">
+      <div id="mlb2-41679917" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41679917">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+              <div class="ml-form-embedContent" style="display:none;"></div>
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email address" autocomplete="email">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit" class="primary">Subscribe</button>
+                  <button disabled="disabled" style="display:none;" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad"></div>
+                    <span class="sr-only">Loading...</span>
+                  </button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none;">
+              <div class="ml-form-successContent">
+                <h4>You're in! 🎉</h4>
+                <p>Thanks for subscribing. Stay tuned for updates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- MUSIC -->
 <div class="page" id="page-music">
   <div class="music-page">
     <div class="page-header">
@@ -252,6 +292,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </div>
 
+<!-- ABOUT -->
 <div class="page" id="page-about" style="padding-top:80px;">
   <div class="about-split">
     <div class="about-img-side">
@@ -283,6 +324,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </div>
 
+<!-- BLOG -->
 <div class="page" id="page-blog" style="padding-top:80px;">
   <div class="page-header">
     <div class="eyebrow">Updates &amp; Stories</div>
@@ -313,18 +355,55 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
         <div class="blog-excerpt">How growing up in New York shaped my sound, my style, and my story...</div>
       </div>
     </div>
-    <div class="blog-coming">Blog posts dropping soon — subscribe below to get notified first</div>
+    <div class="blog-coming">Blog posts dropping soon — subscribe to get notified first</div>
   </div>
-  <div class="subscribe-section">
-    <span class="eyebrow">Stay Updated</span>
-    <h2>Get Notified</h2>
-    <p>Be first to know when new posts and music drop.</p>
-    <div class="gform-wrapper">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_x5QD7j6A98DnZCkhP-ZGpIMuwHEDCQ5uV2RUfkOmPahPPg/viewform?embedded=true" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+  <!-- MAILERLITE NEWSLETTER SECTION -->
+  <div class="newsletter-section">
+    <div class="newsletter-left">
+      <div class="nl-label">Stay Updated</div>
+      <h2>Get Notified</h2>
+      <p>Be first to know when new posts and music drop.</p>
+    </div>
+    <div class="newsletter-right">
+      <div id="mlb2-41679917b" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41679917">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+              <div class="ml-form-embedContent" style="display:none;"></div>
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email address" autocomplete="email">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit" class="primary">Subscribe</button>
+                  <button disabled="disabled" style="display:none;" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad"></div>
+                    <span class="sr-only">Loading...</span>
+                  </button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none;">
+              <div class="ml-form-successContent">
+                <h4>You're in! 🎉</h4>
+                <p>Thanks for subscribing. Stay tuned for updates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- BOOKING -->
 <div class="page" id="page-booking" style="padding-top:80px;">
   <div class="booking-hero">
     <img src="images/booking.jpg" alt="Calvin Priice">
@@ -400,6 +479,17 @@ function handleBooking(e) {
   window.open('mailto:booking@calvinpriice.com?subject=' + subject + '&body=' + body);
   document.getElementById('success-booking').style.display = 'block';
 }
+
+function ml_webform_success_41679917() {
+  var $ = ml_jQuery || jQuery;
+  $('.ml-subscribe-form-41679917 .row-success').show();
+  $('.ml-subscribe-form-41679917 .row-form').hide();
+}
+</script>
+
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
+<script>
+  fetch("https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/takel")
 </script>
 </body>
 </html>
