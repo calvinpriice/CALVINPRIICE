@@ -94,6 +94,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 40px;display:fl
 .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
 .about-tag{font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;border:1px solid var(--border);color:var(--muted);padding:6px 14px;}
 
+/* VIDEOS */
+.video-section{padding:80px 40px;background:var(--black);}
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.video-item{position:relative;padding-top:56.25%;background:#111;}
+.video-item iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+@media(max-width:768px){.video-grid{grid-template-columns:1fr;}}
+
 /* GALLERY */
 .gallery-section{padding:0;}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
@@ -259,17 +266,21 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
   </div>
 </section>
 
-<!-- GALLERY -->
-<div class="gallery-section">
-  <div class="gallery-grid">
-    <div class="gallery-item wide"><img src="images/photo-1.jpg" alt="Calvin Priice" style="object-position:center 30%;"></div>
-    <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Calvin Priice"></div>
-    <div class="gallery-item"><img src="images/gallery-2.jpg" alt="Calvin Priice"></div>
-    <div class="gallery-item"><img src="images/gallery-3.jpg" alt="Calvin Priice"></div>
-    <div class="gallery-item"><img src="images/gallery-4.jpg" alt="Calvin Priice"></div>
-    <div class="gallery-item"><img src="images/photo-2.jpg" alt="Calvin Priice"></div>
-    <div class="gallery-item"><img src="images/photo-3.jpg" alt="Calvin Priice"></div>
-    <div class="gallery-item"><img src="images/gallery-6.jpg" alt="Calvin Priice"></div>
+<!-- VIDEOS -->
+<div class="video-section">
+  <div class="video-grid">
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/c0kuhVKozSM?si=oDmnO-I05YE8qUN_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/U4TqKl5fVmY?si=rzE8FGihoL-YpHwW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/0aK9xqqz_7Y?si=5XRLUhyYsGizNqgl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/pXapwlyQdrw?si=tn36w_ES33d37Tl9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 
