@@ -55,6 +55,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:fle
 .email-input:focus{border-color:var(--sky);}
 .email-btn{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.85rem 1.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background 0.2s;}
 .email-btn:hover{background:var(--sky2);}
+.success-msg{display:none;font-size:13px;color:var(--sky);font-weight:500;padding:0.85rem 0;}
+/* SUBSCRIBE SECTION */
+.subscribe-section{background:var(--black2);border-top:1px solid var(--border);padding:5rem 3vw;text-align:center;}
+.subscribe-section .eyebrow{display:block;margin-bottom:0.5rem;}
+.subscribe-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.8rem;}
+.subscribe-section p{font-size:13px;color:var(--muted);margin-bottom:2rem;}
+.gform-wrapper{max-width:500px;margin:0 auto;background:transparent;}
+.gform-wrapper iframe{border:none;width:100%;background:transparent;filter:invert(1) hue-rotate(180deg);min-height:160px;}
 .music-page{background:var(--black);padding-top:80px;}
 .page-header{padding:3rem 3vw 2rem;}
 .eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:0.5rem;}
@@ -183,16 +191,13 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
     <div class="photo-item"><img src="images/photo-3.jpg" alt="Calvin Priice"></div>
   </div>
 
-  <div class="email-band">
-    <div class="email-band-left">
-      <div class="band-title">Stay in the loop</div>
-      <p>New music, show dates, exclusive drops. First to know.</p>
+  <div class="subscribe-section">
+    <span class="eyebrow">Stay Connected</span>
+    <h2>Join the Fanbase</h2>
+    <p>New music, show dates, and exclusive drops. Be first to know.</p>
+    <div class="gform-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_x5QD7j6A98DnZCkhP-ZGpIMuwHEDCQ5uV2RUfkOmPahPPg/viewform?embedded=true" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
-    <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
-      <input type="hidden" name="form-name" value="subscribe">
-      <input class="email-input" type="email" name="email" placeholder="Your email address" required>
-      <button class="email-btn" type="submit">Subscribe</button>
-    </form>
   </div>
 </div>
 
@@ -310,16 +315,13 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
     </div>
     <div class="blog-coming">Blog posts dropping soon — subscribe below to get notified first</div>
   </div>
-  <div class="email-band">
-    <div class="email-band-left">
-      <div class="band-title">Stay Updated</div>
-      <p>Get notified when new posts and music drop.</p>
+  <div class="subscribe-section">
+    <span class="eyebrow">Stay Updated</span>
+    <h2>Get Notified</h2>
+    <p>Be first to know when new posts and music drop.</p>
+    <div class="gform-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_x5QD7j6A98DnZCkhP-ZGpIMuwHEDCQ5uV2RUfkOmPahPPg/viewform?embedded=true" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
-    <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
-      <input type="hidden" name="form-name" value="subscribe">
-      <input class="email-input" type="email" name="email" placeholder="Your email address" required>
-      <button class="email-btn" type="submit">Subscribe</button>
-    </form>
   </div>
 </div>
 
@@ -348,7 +350,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
         <div class="contact-val"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></div>
       </div>
     </div>
-    <form class="booking-form-side" name="booking" method="POST" data-netlify="true" action="/">
+    <form class="booking-form-side" id="booking-form" onsubmit="handleBooking(event)">
       <div class="form-row form-group">
         <input class="f-input" type="text" name="name" placeholder="Your name" required>
         <input class="f-input" type="email" name="email" placeholder="Email address" required>
@@ -364,6 +366,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
         <textarea class="f-input f-textarea" name="message" placeholder="Tell me more about the event or project..."></textarea>
       </div>
       <button class="submit-btn" type="submit">Send Inquiry</button>
+      <div class="success-msg" id="success-booking" style="margin-top:1rem;">Inquiry sent! We'll be in touch soon. 🎉</div>
     </form>
   </div>
 </div>
@@ -386,6 +389,16 @@ function showPage(p){
   document.getElementById('page-'+p).classList.add('active');
   document.getElementById('nav-'+p).classList.add('active');
   window.scrollTo(0,0);
+}
+
+function handleBooking(e) {
+  e.preventDefault();
+  const form = document.getElementById('booking-form');
+  const data = new FormData(form);
+  const subject = encodeURIComponent('Booking Inquiry from ' + (data.get('name') || 'Website'));
+  const body = encodeURIComponent(Array.from(data.entries()).map(([k,v]) => k+': '+v).join('\n'));
+  window.open('mailto:booking@calvinpriice.com?subject=' + subject + '&body=' + body);
+  document.getElementById('success-booking').style.display = 'block';
 }
 </script>
 </body>
