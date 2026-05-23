@@ -9,51 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --black:#000000;
-  --black2:#0d0d0d;
-  --sky:#7BBDE8;
-  --sky2:#5AAEE0;
-  --text:#e1e1e1;
-  --muted:rgba(225,225,225,0.5);
-  --border:rgba(255,255,255,0.1);
-}
+:root{--black:#000000;--black2:#0d0d0d;--sky:#7BBDE8;--sky2:#5AAEE0;--text:#e1e1e1;--muted:rgba(225,225,225,0.5);--border:rgba(255,255,255,0.1);}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--black);color:var(--text);font-size:14px;line-height:1.55;overflow-x:hidden;}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:flex-start;justify-content:space-between;
-  padding:22px 0 18px 1.5vw;
-  background:rgba(0,0,0,0.96);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-}
-.nav-logo{
-  font-size:13px;font-weight:600;letter-spacing:0.18em;
-  text-transform:uppercase;color:var(--text);line-height:1.1;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:flex-start;justify-content:space-between;padding:22px 0 18px 1.5vw;background:rgba(0,0,0,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-logo{font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);line-height:1.1;}
 .nav-right{display:flex;align-items:flex-start;padding-right:2.5vw;}
 .nav-links{display:flex;flex-direction:column;align-items:flex-end;gap:0;list-style:none;}
-.nav-links li a{
-  display:block;font-size:13px;font-weight:500;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--muted);text-decoration:none;
-  cursor:pointer;padding:2px 0;transition:color 0.2s;line-height:1.6;
-}
+.nav-links li a{display:block;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;cursor:pointer;padding:2px 0;transition:color 0.2s;line-height:1.6;}
 .nav-links li a:hover,.nav-links li a.active{color:var(--text);}
 .nav-book{color:var(--sky)!important;}
-
-/* ── PAGES ── */
 .page{display:none;}
 .page.active{display:block;}
-
-/* ── HERO ── */
-.home-hero{
-  height:100vh;position:relative;overflow:hidden;
-  display:flex;align-items:flex-end;
-}
+.home-hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
 .home-hero-bg{position:absolute;inset:0;}
 .home-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0.55;}
 .home-hero-fade{position:absolute;inset:0;background:linear-gradient(to top,#000 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.1) 100%);}
@@ -73,15 +41,11 @@ nav{
 .scroll-hint{position:absolute;bottom:2.5rem;right:3vw;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;}
 .scroll-line{width:1px;height:36px;background:rgba(255,255,255,0.15);}
 .scroll-text{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;}
-
-/* ── PHOTO GRID ── */
 .photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.05);}
 .photo-item{overflow:hidden;aspect-ratio:3/4;position:relative;}
 .photo-item.wide{grid-column:span 2;aspect-ratio:16/9;}
 .photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s,opacity 0.3s;opacity:0.75;}
 .photo-item:hover img{transform:scale(1.04);opacity:1;}
-
-/* ── EMAIL BAND ── */
 .email-band{background:var(--black2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:4rem 3vw;flex-wrap:wrap;}
 .email-band-left .band-title{font-size:1.3rem;font-weight:300;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;}
 .email-band-left p{font-size:12px;color:var(--muted);}
@@ -91,8 +55,6 @@ nav{
 .email-input:focus{border-color:var(--sky);}
 .email-btn{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.85rem 1.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background 0.2s;}
 .email-btn:hover{background:var(--sky2);}
-
-/* ── MUSIC PAGE ── */
 .music-page{background:var(--black);padding-top:80px;}
 .page-header{padding:3rem 3vw 2rem;}
 .eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--sky);margin-bottom:0.5rem;}
@@ -112,8 +74,6 @@ figcaption.music-item-name{font-size:11px;font-weight:500;letter-spacing:0.08em;
 .plat-card-left .plat-name{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text);margin-bottom:0.2rem;}
 .plat-card-left .plat-sub{font-size:11px;color:var(--muted);}
 .plat-arrow{font-size:18px;color:var(--sky);}
-
-/* ── ABOUT ── */
 .about-split{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;}
 .about-img-side{overflow:hidden;position:relative;}
 .about-img-side img{width:100%;height:100%;object-fit:cover;object-position:top;}
@@ -124,8 +84,6 @@ figcaption.music-item-name{font-size:11px;font-weight:500;letter-spacing:0.08em;
 .about-body{font-size:13px;color:var(--muted);line-height:1.9;margin-bottom:1rem;}
 .about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
 .about-tag{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border);color:var(--muted);padding:0.3rem 0.8rem;}
-
-/* ── BLOG ── */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
 .blog-card{background:var(--black);cursor:pointer;transition:background 0.2s;}
 .blog-card:hover{background:var(--black2);}
@@ -137,8 +95,6 @@ figcaption.music-item-name{font-size:11px;font-weight:500;letter-spacing:0.08em;
 .blog-title{font-size:14px;font-weight:500;margin-bottom:0.4rem;line-height:1.3;}
 .blog-excerpt{font-size:12px;color:var(--muted);line-height:1.7;}
 .blog-coming{grid-column:span 3;padding:3rem;text-align:center;font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
-
-/* ── BOOKING ── */
 .booking-hero{height:40vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
 .booking-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top 30%;opacity:0.3;}
 .booking-hero-fade{position:absolute;inset:0;background:linear-gradient(to top,#000 0%,transparent 60%);}
@@ -159,16 +115,12 @@ figcaption.music-item-name{font-size:11px;font-weight:500;letter-spacing:0.08em;
 .f-textarea{resize:none;min-height:90px;}
 .submit-btn{margin-top:1rem;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--sky);color:#000;padding:0.9rem 2.5rem;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;}
 .submit-btn:hover{background:var(--sky2);}
-
-/* ── FOOTER ── */
 footer{background:var(--black2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:28px 3vw;flex-wrap:wrap;gap:1rem;}
 .footer-name{font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:1rem;line-height:1.1;}
 .footer-links{display:flex;gap:2rem;flex-wrap:wrap;}
 .footer-links a{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
 .footer-links a:hover{color:var(--sky);}
 .footer-copy{font-size:10px;color:var(--muted);letter-spacing:0.05em;}
-
-/* ── MOBILE ── */
 @media(max-width:768px){
   .about-split{grid-template-columns:1fr;}
   .about-img-side{height:60vw;}
@@ -185,7 +137,6 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Calvin<br>Priice</div>
   <div class="nav-right">
@@ -199,11 +150,9 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </nav>
 
-<!-- ══════════ HOME ══════════ -->
 <div class="page active" id="page-home" style="padding-top:80px;">
   <div class="home-hero" style="margin-top:-80px;">
     <div class="home-hero-bg">
-      <!-- HERO IMAGE: replace src with your preferred photo -->
       <img src="images/hero.jpg" alt="Calvin Priice">
     </div>
     <div class="home-hero-fade"></div>
@@ -228,20 +177,18 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
     </div>
   </div>
 
-  <!-- Home photo grid -->
   <div class="photo-grid">
     <div class="photo-item wide"><img src="images/photo-1.jpg" alt="Calvin Priice"></div>
     <div class="photo-item"><img src="images/photo-2.jpg" alt="Calvin Priice"></div>
     <div class="photo-item"><img src="images/photo-3.jpg" alt="Calvin Priice"></div>
   </div>
 
-  <!-- Email signup -->
   <div class="email-band">
     <div class="email-band-left">
       <div class="band-title">Stay in the loop</div>
       <p>New music, show dates, exclusive drops. First to know.</p>
     </div>
-    <form class="email-form" name="subscribe" method="POST" <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
+    <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
       <input type="hidden" name="form-name" value="subscribe">
       <input class="email-input" type="email" name="email" placeholder="Your email address" required>
       <button class="email-btn" type="submit">Subscribe</button>
@@ -249,37 +196,14 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </div>
 
-<!-- ══════════ MUSIC ══════════ -->
 <div class="page" id="page-music">
   <div class="music-page">
     <div class="page-header">
       <div class="eyebrow">Discography</div>
       <h1 class="section-heading">Music</h1>
     </div>
-
     <div class="music-list-container">
       <div class="music-list">
-        <!--
-          HOW TO ADD TRACKS — copy this block for each release:
-
-          <a href="YOUR-STREAMING-LINK" target="_blank" class="music-item">
-            <figure>
-              <img class="music-item-art" src="images/track-name.jpg" alt="Track Name">
-              <figcaption class="music-item-name">Track Name</figcaption>
-            </figure>
-          </a>
-
-          For releases without artwork yet, use the placeholder:
-
-          <a href="YOUR-STREAMING-LINK" target="_blank" class="music-item">
-            <figure>
-              <div class="music-item-art-placeholder"><span>Coming Soon</span></div>
-              <figcaption class="music-item-name">Track Name</figcaption>
-            </figure>
-          </a>
-        -->
-
-        <!-- PLACEHOLDER TRACKS — replace with your real releases -->
         <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="music-item">
           <figure>
             <img class="music-item-art" src="images/hero.jpg" alt="Calvin Priice">
@@ -306,35 +230,23 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
         </a>
       </div>
     </div>
-
-    <!-- Streaming platforms -->
     <div class="platforms-section">
       <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="plat-card">
-        <div class="plat-card-left">
-          <div class="plat-name">Spotify</div>
-          <div class="plat-sub">Stream all releases</div>
-        </div>
+        <div class="plat-card-left"><div class="plat-name">Spotify</div><div class="plat-sub">Stream all releases</div></div>
         <div class="plat-arrow">→</div>
       </a>
       <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" class="plat-card">
-        <div class="plat-card-left">
-          <div class="plat-name">Apple Music</div>
-          <div class="plat-sub">Listen on Apple</div>
-        </div>
+        <div class="plat-card-left"><div class="plat-name">Apple Music</div><div class="plat-sub">Listen on Apple</div></div>
         <div class="plat-arrow">→</div>
       </a>
       <a href="https://www.youtube.com/@CalvinPriice" target="_blank" class="plat-card">
-        <div class="plat-card-left">
-          <div class="plat-name">YouTube</div>
-          <div class="plat-sub">Videos &amp; visuals</div>
-        </div>
+        <div class="plat-card-left"><div class="plat-name">YouTube</div><div class="plat-sub">Videos &amp; visuals</div></div>
         <div class="plat-arrow">→</div>
       </a>
     </div>
   </div>
 </div>
 
-<!-- ══════════ ABOUT ══════════ -->
 <div class="page" id="page-about" style="padding-top:80px;">
   <div class="about-split">
     <div class="about-img-side">
@@ -355,8 +267,6 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
       </div>
     </div>
   </div>
-
-  <!-- Gallery -->
   <div class="photo-grid">
     <div class="photo-item"><img src="images/gallery-1.jpg" alt="Calvin Priice"></div>
     <div class="photo-item"><img src="images/gallery-2.jpg" alt="Calvin Priice"></div>
@@ -368,7 +278,6 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </div>
 
-<!-- ══════════ BLOG ══════════ -->
 <div class="page" id="page-blog" style="padding-top:80px;">
   <div class="page-header">
     <div class="eyebrow">Updates &amp; Stories</div>
@@ -384,7 +293,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
       </div>
     </div>
     <div class="blog-card">
-      <div class="blog-thumb"><img src="images/blog-2.jpg" alt="Faith & the Music Industry"></div>
+      <div class="blog-thumb"><img src="images/blog-2.jpg" alt="Faith and the Music Industry"></div>
       <div class="blog-info">
         <div class="blog-date">Coming Soon</div>
         <div class="blog-title">Faith &amp; the Music Industry</div>
@@ -401,13 +310,12 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
     </div>
     <div class="blog-coming">Blog posts dropping soon — subscribe below to get notified first</div>
   </div>
-
   <div class="email-band">
     <div class="email-band-left">
       <div class="band-title">Stay Updated</div>
       <p>Get notified when new posts and music drop.</p>
     </div>
-    <form class="email-form" name="subscribe" method="POST" <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
+    <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
       <input type="hidden" name="form-name" value="subscribe">
       <input class="email-input" type="email" name="email" placeholder="Your email address" required>
       <button class="email-btn" type="submit">Subscribe</button>
@@ -415,7 +323,6 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </div>
 
-<!-- ══════════ BOOKING ══════════ -->
 <div class="page" id="page-booking" style="padding-top:80px;">
   <div class="booking-hero">
     <img src="images/booking.jpg" alt="Calvin Priice">
@@ -441,8 +348,7 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
         <div class="contact-val"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></div>
       </div>
     </div>
-    <!-- TODO: Replace action with a real form handler e.g. Netlify Forms or Formspree -->
-    <form class="booking-form-side" name="booking" method="POST" <form class="email-form" name="subscribe" method="POST" data-netlify="true" action="/">
+    <form class="booking-form-side" name="booking" method="POST" data-netlify="true" action="/">
       <div class="form-row form-group">
         <input class="f-input" type="text" name="name" placeholder="Your name" required>
         <input class="f-input" type="email" name="email" placeholder="Email address" required>
@@ -462,7 +368,6 @@ footer{background:var(--black2);border-top:1px solid var(--border);display:flex;
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-name">Calvin<br>Priice</div>
   <div class="footer-links">
