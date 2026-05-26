@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calvin Priice — Official Site</title>
 <meta name="description" content="Calvin Priice — Multi-genre recording artist from The Bronx, New York. Faith, love, and real life.">
-<link rel="icon" type="image/png" href="favicon.png?v=2">
-<link rel="apple-touch-icon" href="favicon.png?v=2">
+<link rel="icon" type="image/png" href="images/Favicon.png?v=2">
+<link rel="apple-touch-icon" href="images/Favicon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -24,14 +24,13 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
 
-/* NAV */
+/* NAV — text only, no boxes */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(14,14,15,0.85) 0%,rgba(14,14,15,0.5) 60%,transparent 100%);}
-.nav-logo{font-family:'Anton',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--white);text-decoration:none;text-shadow:0 2px 14px rgba(0,0,0,0.85);}
-.nav-links{display:flex;gap:14px;list-style:none;align-items:center;}
-.nav-links li a{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#F4EFE3;text-decoration:none;transition:color 0.2s,background 0.2s;background:rgba(14,14,15,0.78);padding:8px 14px;border-radius:4px;}
-.nav-links li a:hover{color:var(--accent);background:rgba(14,14,15,0.92);}
-.nav-book{color:var(--black)!important;background:var(--accent)!important;}
-.nav-book:hover{color:var(--black)!important;background:var(--white)!important;}
+.nav-logo{font-family:'Anton',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--white);text-decoration:none;text-shadow:0 2px 14px rgba(0,0,0,0.9);}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
+.nav-links li a{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#F4EFE3;text-decoration:none;transition:color 0.2s;text-shadow:0 2px 12px rgba(0,0,0,0.95),0 0 16px rgba(0,0,0,0.7);}
+.nav-links li a:hover{color:var(--accent);}
+.nav-book{color:var(--accent)!important;}
 
 /* HERO */
 .hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
@@ -43,7 +42,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:fl
 .hero-content{position:relative;z-index:2;padding:0 40px 60px;width:100%;}
 .hero-tag{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.32em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block;}
 .hero-name{font-family:'Anton',sans-serif;font-size:clamp(2.8rem,7vw,6.5rem);line-height:0.9;letter-spacing:0.02em;color:var(--white);margin-bottom:24px;text-transform:uppercase;}
-.hero-name span{display:inline;}
 .hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(244,239,227,0.7);line-height:1.7;max-width:360px;margin-bottom:36px;}
 .hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
 .btn-primary{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:14px 32px;text-decoration:none;display:inline-block;transition:background 0.2s,color 0.2s;border-radius:3px;}
@@ -92,7 +90,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:fl
 .release-title span{display:block;font-weight:400;font-size:10px;color:var(--muted);letter-spacing:0.12em;margin-top:2px;}
 .release-all{display:inline-block;margin-top:28px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:4px;transition:border-color 0.2s;}
 .release-all:hover{border-color:var(--accent);}
-@media(max-width:768px){.release-grid{grid-template-columns:repeat(2,1fr);}}
 
 /* ABOUT SECTION */
 .about-section{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;}
@@ -116,7 +113,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:fl
 .video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;border:none;background:rgba(143,199,232,0.92);cursor:pointer;transition:background 0.2s,transform 0.2s;z-index:2;}
 .video-play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #0E0E0F;}
 .video-item:hover .video-play{background:var(--white);transform:translate(-50%,-50%) scale(1.08);}
-@media(max-width:768px){.video-grid{grid-template-columns:1fr;}}
 
 /* NEWSLETTER */
 .newsletter-section{background:var(--charcoal);border-top:1px solid var(--border);padding:100px 40px;}
@@ -139,7 +135,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:fl
 .f-input::placeholder{color:var(--muted);}
 .f-input:focus{border-bottom-color:var(--accent);}
 .f-textarea{resize:none;min-height:100px;}
-.f-submit{margin-top:12px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:16px 40px;border:none;cursor:pointer;font-family:'Oswald',sans-serif;transition:background 0.2s;border-radius:3px;}
+.f-submit{margin-top:12px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:16px 40px;border:none;cursor:pointer;transition:background 0.2s;border-radius:3px;}
 .f-submit:hover{background:var(--white);}
 .f-success{display:none;font-size:13px;color:var(--accent);margin-top:16px;font-weight:300;}
 
@@ -166,15 +162,14 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
   nav{padding:20px 24px;background:linear-gradient(to bottom,rgba(14,14,15,0.9) 0%,rgba(14,14,15,0.5) 70%,transparent 100%);}
   .nav-logo{font-size:18px;}
   .nav-links{gap:14px;}
-  .nav-links li a{background:transparent;padding:0;text-shadow:0 2px 10px rgba(0,0,0,0.95),0 0 14px rgba(0,0,0,0.7);font-size:11px;letter-spacing:0.14em;}
-  .nav-links li a:hover{background:transparent;}
-  .nav-book{background:transparent!important;color:var(--accent)!important;}
-  .nav-book:hover{background:transparent!important;color:var(--white)!important;}
+  .nav-links li a{font-size:11px;letter-spacing:0.14em;}
   .hero-content{padding:0 24px 48px;}
   .hero-socials{display:none;}
   .section{padding:80px 24px;}
   .music-section,.booking-section,.newsletter-section{padding:80px 24px;}
   .music-inner,.booking-inner,.newsletter-inner{grid-template-columns:1fr;gap:40px;}
+  .release-grid{grid-template-columns:repeat(2,1fr);}
+  .video-grid{grid-template-columns:1fr;}
   .f-row{grid-template-columns:1fr;}
   footer{padding:28px 24px;}
 }
@@ -203,9 +198,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
   <div class="hero-fade-left"></div>
   <div class="hero-content">
     <span class="hero-tag">Recording Artist · The Bronx</span>
-    <h1 class="hero-name">
-      <span>Calvin Priice</span>
-    </h1>
+    <h1 class="hero-name">Calvin Priice</h1>
     <p class="hero-sub">New York native. Dominican &amp; Puerto Rican roots. Multi-genre artist where faith, love, and real life collide.</p>
     <div class="hero-actions">
       <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="btn-primary">Stream Now</a>
@@ -518,7 +511,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// Click-to-load YouTube facades (huge performance win — no YT JS until clicked)
+// Click-to-load YouTube facades
 document.querySelectorAll('.video-item[data-yt]').forEach(item=>{
   item.addEventListener('click',()=>{
     const id=item.getAttribute('data-yt');
