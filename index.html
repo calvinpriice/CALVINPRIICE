@@ -5,8 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calvin Priice — Official Site</title>
 <meta name="description" content="Calvin Priice — Multi-genre recording artist from The Bronx, New York. Faith, love, and real life.">
+<link rel="canonical" href="https://calvinpriice.com/">
 <link rel="icon" type="image/png" href="images/Favicon.png?v=2">
 <link rel="apple-touch-icon" href="images/Favicon.png?v=2">
+<!-- Social share previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Calvin Priice">
+<meta property="og:url" content="https://calvinpriice.com/">
+<meta property="og:title" content="Calvin Priice — Official Site">
+<meta property="og:description" content="Calvin Priice — Multi-genre recording artist from The Bronx, New York. Faith, love, and real life.">
+<meta property="og:image" content="https://calvinpriice.com/images/hero2.jpg">
+<meta property="og:image:width" content="1079">
+<meta property="og:image:height" content="1319">
+<meta property="og:image:alt" content="Calvin Priice">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calvin Priice — Official Site">
+<meta name="twitter:description" content="Calvin Priice — Multi-genre recording artist from The Bronx, New York. Faith, love, and real life.">
+<meta name="twitter:image" content="https://calvinpriice.com/images/hero2.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MusicGroup","name":"Calvin Priice","url":"https://calvinpriice.com/","image":"https://calvinpriice.com/images/hero2.jpg","foundingLocation":"The Bronx, New York","sameAs":["https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u","https://music.apple.com/us/artist/calvin-priice/1354959639","https://www.youtube.com/@CalvinPriice","https://instagram.com/calvinpriice"]}
+</script>
+<link rel="preload" as="image" href="images/hero2.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -173,6 +192,11 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
   .f-row{grid-template-columns:1fr;}
   footer{padding:28px 24px;}
 }
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;}
+  .marquee-track{animation:none!important;}
+}
 </style>
 </head>
 <body>
@@ -191,7 +215,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/hero2.jpg" alt="Calvin Priice" width="1600" height="2400" style="object-position:center 20%;">
+    <img src="images/hero2.jpg" alt="Calvin Priice" width="1600" height="2400" fetchpriority="high" style="object-position:center 20%;">
   </div>
   <div class="hero-grain"></div>
   <div class="hero-fade"></div>
@@ -499,10 +523,13 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
     <a href="https://instagram.com/calvinpriice" target="_blank">Instagram</a>
     <a href="https://www.youtube.com/@CalvinPriice" target="_blank">YouTube</a>
   </div>
-  <div class="footer-copy">© 2025 Calvin Priice. All rights reserved.</div>
+  <div class="footer-copy">© <span id="yr">2026</span> Calvin Priice. All rights reserved.</div>
 </footer>
 
 <script>
+// Keep footer year current
+document.getElementById('yr').textContent=new Date().getFullYear();
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
