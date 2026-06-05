@@ -39,7 +39,7 @@
   --white:#F4EFE3;
   --accent:#8FC7E8;
   --accent2:#5BA3CF;
-  --muted:rgba(244,239,227,0.48);
+  --muted:rgba(244,239,227,0.58);
   --border:rgba(143,199,232,0.16);
 }
 html{scroll-behavior:smooth;}
@@ -598,7 +598,8 @@ function ml_webform_success_41679917(){
   ['pointerdown','keydown','touchstart','scroll'].forEach(function(e){
     window.addEventListener(e, loadML, {once:true, passive:true});
   });
-  setTimeout(loadML, 4000); // fallback so it's ready for non-interacting visitors
+  // No timer: any real subscriber focuses the input first (fires pointerdown),
+  // which loads the script in time. Keeps it fully off the no-interaction load path.
 })();
 </script>
 </body>
