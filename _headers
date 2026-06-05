@@ -1,0 +1,3 @@
+# Long-lived caching for static images (artwork rarely changes)
+/images/*
+  Cache-Control: public, max-age=2592000

@@ -25,10 +25,12 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MusicGroup","name":"Calvin Priice","url":"https://calvinpriice.com/","image":"https://calvinpriice.com/images/hero2.jpg","foundingLocation":"The Bronx, New York","sameAs":["https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u","https://music.apple.com/us/artist/calvin-priice/1354959639","https://www.youtube.com/@CalvinPriice","https://instagram.com/calvinpriice"]}
 </script>
-<link rel="preload" as="image" href="images/hero2.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -215,7 +217,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/hero2.jpg" alt="Calvin Priice" width="1600" height="2400" fetchpriority="high" style="object-position:center 20%;">
+    <img src="images/hero2.webp" alt="Calvin Priice" width="1600" height="2400" fetchpriority="high" style="object-position:center 20%;">
   </div>
   <div class="hero-grain"></div>
   <div class="hero-fade"></div>
@@ -374,7 +376,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
 <!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="about-bg">
-    <img src="images/about.jpg" alt="Calvin Priice" width="1600" height="2000" loading="lazy" style="object-position:center top;">
+    <img src="images/about.webp" alt="Calvin Priice" width="1600" height="2000" loading="lazy" style="object-position:center top;">
     <div class="about-bg-fade"></div>
   </div>
   <div class="about-content">
@@ -581,7 +583,23 @@ function ml_webform_success_41679917(){
 }
 </script>
 
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
-<script>fetch("https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/takel")</script>
+<script>
+// Lazy-load MailerLite (off the critical path) — on first interaction, or after idle.
+// The subscribe form posts normally without JS; the script only enhances the inline success state.
+(function(){
+  var loaded=false;
+  function loadML(){
+    if(loaded)return; loaded=true;
+    var s=document.createElement('script');
+    s.src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b";
+    document.body.appendChild(s);
+    fetch("https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/takel");
+  }
+  ['pointerdown','keydown','touchstart','scroll'].forEach(function(e){
+    window.addEventListener(e, loadML, {once:true, passive:true});
+  });
+  setTimeout(loadML, 4000); // fallback so it's ready for non-interacting visitors
+})();
+</script>
 </body>
 </html>
