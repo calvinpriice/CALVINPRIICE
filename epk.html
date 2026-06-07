@@ -80,7 +80,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:fl
 .release-title span{display:block;font-weight:400;font-size:9px;color:var(--muted);margin-top:2px;}
 
 /* PHOTOS */
-.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
 .photo-grid a{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);display:block;position:relative;}
 .photo-grid img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.3s;filter:grayscale(15%);}
 .photo-grid a:hover img{transform:scale(1.04);filter:grayscale(0%);}
@@ -205,6 +205,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
   <span class="section-label">Press Photos</span>
   <h2>Gallery</h2>
   <div class="photo-grid">
+    <a href="images/press-1.webp" target="_blank" rel="noopener"><img src="images/press-1.webp" alt="Calvin Priice press photo" width="1500" height="2000" loading="lazy"></a>
     <a href="images/hero2.webp" target="_blank" rel="noopener"><img src="images/hero2.webp" alt="Calvin Priice press photo" width="1079" height="1319" loading="lazy"></a>
     <a href="images/blog-studio-4.webp" target="_blank" rel="noopener"><img src="images/blog-studio-4.webp" alt="Calvin Priice in the studio" width="1200" height="1200" loading="lazy"></a>
     <a href="images/blog-studio-3.webp" target="_blank" rel="noopener"><img src="images/blog-studio-3.webp" alt="Calvin Priice in the studio" width="1400" height="1400" loading="lazy"></a>
