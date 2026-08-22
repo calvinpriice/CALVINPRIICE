@@ -1,2 +1,9 @@
 # Local Netlify folder
 .netlify
+
+# vlog tooling — local ffmpeg binaries, not deployed
+tools/node_modules/
+# raw footage never gets committed; only the compressed output in /videos does
+*.MOV
+*.mov
+raw-footage/

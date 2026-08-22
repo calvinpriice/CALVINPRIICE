@@ -230,6 +230,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
     <li><a href="#music">Music</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="vlog.html">Vlog</a></li>
     <li><a href="#booking" class="nav-book">Book Now</a></li>
   </ul>
 </nav>
@@ -474,7 +475,11 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
         .ml-mobileButton-horizontal{display:inline-block!important;margin-top:10px;width:100%;}
         #mlb2-41679917 .ml-mobileButton-horizontal button{background:#8FC7E8!important;color:#0E0E0F!important;border:none!important;font-family:'Oswald',sans-serif!important;font-size:12px!important;font-weight:600!important;letter-spacing:0.2em!important;text-transform:uppercase!important;padding:14px!important;width:100%!important;cursor:pointer;}
       }
-      </style>
+      
+/* --- 5-item nav fits small screens (added with Vlog) --- */
+@media(max-width:860px){.nav-links{gap:18px;}.nav-links li a{font-size:11px;letter-spacing:0.12em;}}
+@media(max-width:560px){nav{padding:14px 16px;flex-wrap:wrap;gap:8px;}.nav-logo{font-size:18px;}.nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-start;width:100%;}.nav-links li a{font-size:10px;letter-spacing:0.08em;}}
+</style>
       <div id="mlb2-41679917" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41679917">
         <div class="ml-form-align-center">
           <div class="ml-form-embedWrapper embedForm">

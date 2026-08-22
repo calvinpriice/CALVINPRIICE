@@ -1,3 +1,8 @@
 # Long-lived caching for static images (artwork rarely changes)
 /images/*
   Cache-Control: public, max-age=2592000
+
+# Vlog video files — immutable once published (slug never changes content).
+# Long cache means a returning viewer costs zero Netlify bandwidth.
+/videos/*
+  Cache-Control: public, max-age=31536000, immutable

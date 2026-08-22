@@ -127,6 +127,10 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
   html{scroll-behavior:auto;}
   *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;}
 }
+
+/* --- 5-item nav fits small screens (added with Vlog) --- */
+@media(max-width:860px){.nav-links{gap:18px;}.nav-links li a{font-size:11px;letter-spacing:0.12em;}}
+@media(max-width:560px){nav{padding:14px 16px;flex-wrap:wrap;gap:8px;}.nav-logo{font-size:18px;}.nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-start;width:100%;}.nav-links li a{font-size:10px;letter-spacing:0.08em;}}
 </style>
 </head>
 <body>
@@ -137,6 +141,7 @@ footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-cont
     <li><a href="index.html#music">Music</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="vlog.html">Vlog</a></li>
     <li><a href="index.html#booking" class="nav-book">Book Now</a></li>
   </ul>
 </nav>
