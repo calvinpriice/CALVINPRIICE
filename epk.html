@@ -32,229 +32,162 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --black:#0E0E0F;--charcoal:#1A1A1C;--white:#F4EFE3;--accent:#8FC7E8;
-  --muted:rgba(244,239,227,0.58);--border:rgba(143,199,232,0.16);
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
-a{color:inherit;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,14,15,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:'Anton',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--white);text-decoration:none;}
-.nav-links{display:flex;gap:32px;list-style:none;}
-.nav-links li a{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,239,227,0.78);text-decoration:none;transition:color 0.2s;}
-.nav-links li a:hover,.nav-links li a.active{color:var(--accent);}
-.nav-book{color:var(--accent)!important;}
-
-.section-label{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;}
-
-/* EPK HERO */
-.epk-hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;padding:160px 40px 80px;max-width:1200px;margin:0 auto;}
-.epk-hero-name{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,6rem);line-height:0.9;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:20px;}
-.epk-hero-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:rgba(244,239,227,0.72);line-height:1.7;max-width:420px;margin-bottom:28px;}
-.epk-hero-photo{aspect-ratio:4/5;overflow:hidden;border:1px solid var(--border);}
-.epk-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:grayscale(12%);}
-.epk-actions{display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:14px 30px;text-decoration:none;border-radius:3px;transition:background 0.2s;}
-.btn-primary:hover{background:var(--white);}
-.btn-ghost{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,239,227,0.8);padding:14px 30px;border:1px solid var(--border);text-decoration:none;border-radius:3px;transition:all 0.2s;}
-.btn-ghost:hover{border-color:var(--accent);color:var(--white);}
-
-.section{max-width:1200px;margin:0 auto;padding:70px 40px;border-top:1px solid var(--border);}
-.section h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:32px;line-height:1;}
-
-/* BIO */
-.bio-lead{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.4rem,3vw,2rem);line-height:1.4;color:var(--white);max-width:820px;margin-bottom:32px;}
-.bio p{font-size:15px;font-weight:300;color:rgba(244,239,227,0.65);line-height:1.9;max-width:760px;margin-bottom:20px;}
-
-/* FACTS */
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
-.fact{background:var(--black);padding:28px 24px;}
-.fact-k{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
-.fact-v{font-family:'Oswald',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.04em;color:var(--white);}
-
-/* MUSIC */
-.stream-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
-.release-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
-.release-card{text-decoration:none;color:var(--white);}
-.release-art{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);}
-.release-art img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
-.release-card:hover .release-art img{transform:scale(1.05);}
-.release-title{font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:10px;}
-.release-title span{display:block;font-weight:400;font-size:9px;color:var(--muted);margin-top:2px;}
-
-/* PHOTOS */
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.photo-grid a{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);display:block;position:relative;}
-.photo-grid img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.3s;filter:grayscale(15%);}
-.photo-grid a:hover img{transform:scale(1.04);filter:grayscale(0%);}
-.photo-note{font-size:12px;color:var(--muted);margin-top:16px;}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:36px;}
-.contact-k{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
-.contact-v a{font-size:15px;color:var(--white);text-decoration:none;transition:color 0.2s;}
-.contact-v a:hover{color:var(--accent);}
-.social-row{display:flex;gap:24px;flex-wrap:wrap;}
-.social-row a{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
-.social-row a:hover{color:var(--accent);}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1200px;margin:0 auto;}
-.footer-logo{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;}
-.footer-links{display:flex;gap:28px;flex-wrap:wrap;}
-.footer-links a{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--accent);}
-.footer-copy{font-size:10px;color:var(--muted);letter-spacing:0.05em;}
-
-@media(max-width:768px){
-  nav{padding:20px 24px;}.nav-links{gap:14px;}
-  .epk-hero{grid-template-columns:1fr;gap:32px;padding:120px 24px 60px;}
-  .epk-hero-photo{max-width:300px;}
-  .section{padding:50px 24px;}
-  .facts{grid-template-columns:1fr 1fr;}
-  .release-grid{grid-template-columns:repeat(3,1fr);}
-  .photo-grid{grid-template-columns:1fr 1fr;}
-  .contact-grid{grid-template-columns:1fr;gap:20px;}
-  footer{padding:28px 24px;}
-}
-
-/* --- 5-item nav fits small screens (added with Vlog) --- */
-@media(max-width:860px){.nav-links{gap:18px;}.nav-links li a{font-size:11px;letter-spacing:0.12em;}}
-@media(max-width:560px){nav{padding:14px 16px;flex-wrap:wrap;gap:8px;}.nav-logo{font-size:18px;}.nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-start;width:100%;}.nav-links li a{font-size:10px;letter-spacing:0.08em;}}
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Expanded:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">CALVIN PRIICE</a>
-  <ul class="nav-links">
-    <li><a href="index.html#music">Music</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="vlog.html">Vlog</a></li>
-    <li><a href="index.html#booking" class="nav-book">Book Now</a></li>
-  </ul>
-</nav>
+<div class="topbar"><div class="wrap">
+  <span class="mono"><span class="dot"></span>Press Kit — EPK</span>
+  <span class="mono">Calvin Priice · The Bronx, NY</span>
+</div></div>
 
-<!-- HERO -->
-<header class="epk-hero">
-  <div>
-    <span class="section-label">Press Kit · EPK</span>
-    <h1 class="epk-hero-name">Calvin Priice</h1>
-    <p class="epk-hero-tag">Multi-genre recording artist from The Bronx, New York — where faith, love, and real life collide. Dominican &amp; Puerto Rican roots, writing in English and Spanish.</p>
-    <div class="epk-actions">
-      <a href="mailto:booking@calvinpriice.com?subject=Booking%20Inquiry%20%E2%80%94%20Calvin%20Priice" class="btn-primary">Booking Inquiry</a>
-      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="btn-ghost">Listen</a>
+<nav class="nav"><div class="wrap">
+  <a href="/" class="brand">calvin priice<sup>®</sup></a>
+  <ul class="navlinks">
+    <li><a href="/#catalog">Music</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/vlog.html">Vlog</a></li>
+    <li><a href="/#book" class="book">Book</a></li>
+  </ul>
+</div></nav>
+
+<div class="wrap">
+  <a href="/" class="crumb">← Index</a>
+  <header class="phead">
+    <span class="eyebrow">// Press Kit — EPK</span>
+    <h1>Calvin Priice</h1>
+    <p>Multi-genre recording artist from The Bronx, New York — where faith, love, and real life collide. Dominican &amp; Puerto Rican roots, writing and recording in English and Spanish.</p>
+    <div class="hero-cta" style="margin-top:28px;">
+      <a href="mailto:booking@calvinpriice.com?subject=Booking%20Inquiry%20%E2%80%94%20Calvin%20Priice" class="btn btn-fill">Booking Inquiry ↗</a>
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="btn">Listen ↗</a>
+    </div>
+  </header>
+
+  <!-- BIO -->
+  <section class="sec">
+    <div class="sec-head"><div><span class="eyebrow">// Biography</span><h2>The Story</h2></div><span class="idx">Doc 01</span></div>
+    <div class="about-grid">
+      <div class="about-left">
+        <p class="about-q">"Clutch by nature, <em>classic by design.</em>"</p>
+        <p class="about-body">Calvin Priice is a multi-genre recording artist from The Bronx, New York, whose music lives at the intersection of faith, love, and real life. A New York native with Dominican and Puerto Rican roots, he writes and records in both English and Spanish — moving between genres and languages the way he actually talks.</p>
+        <p class="about-body">His sound doesn't fit in one box, and that's exactly the point. Across a growing catalog of singles, his music reflects personal growth, spiritual depth, and the kind of honesty that makes people feel less alone. Independent and self-driven, Calvin builds his world on his own terms — from the studio to the streets.</p>
+      </div>
+      <div class="about-right">
+        <div class="about-photo" style="margin:0;">
+          <img src="images/hero2.webp" alt="Calvin Priice" width="1079" height="1319" loading="lazy">
+          <div class="cap"><span>press.jpg</span><span>Fig. 01</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTS -->
+  <section class="sec">
+    <div class="sec-head"><div><span class="eyebrow">// At a Glance</span><h2>The Facts</h2></div><span class="idx">Doc 02 — Spec</span></div>
+    <div class="facts" style="margin:8px 0 34px;">
+      <div class="fact"><div class="fact-k">Based In</div><div class="fact-v">The Bronx, New York</div></div>
+      <div class="fact"><div class="fact-k">Heritage</div><div class="fact-v">Dominican &amp; Puerto Rican</div></div>
+      <div class="fact"><div class="fact-k">Languages</div><div class="fact-v">English &amp; Spanish</div></div>
+      <div class="fact"><div class="fact-k">Genre</div><div class="fact-v">Multi-Genre</div></div>
+      <div class="fact"><div class="fact-k">Status</div><div class="fact-v">Independent</div></div>
+      <div class="fact"><div class="fact-k">On</div><div class="fact-v">Spotify · Apple · YouTube</div></div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="sec">
+    <div class="sec-head"><div><span class="eyebrow">// Music</span><h2>Listen</h2></div><span class="idx">Doc 03 — Catalog</span></div>
+    <div class="grid" style="margin-top:8px;">
+      <a href="/music/she-dont-care.html" class="rel">
+        <div class="rel-art"><img src="images/she-dont-care.webp" alt="She Don't Care cover" width="600" height="600" loading="lazy"></div>
+        <div class="rel-meta"><span class="rel-cat">CP-01</span><span class="rel-yr tnum">2025</span></div>
+        <div class="rel-title">She Don't Care</div><div class="rel-sub"><span class="tag">Latest</span></div>
+      </a>
+      <a href="/music/dont-cry-just-whine.html" class="rel">
+        <div class="rel-art"><img src="images/dont-cry-just-whine.webp" alt="Don't Cry Just Whine cover" width="600" height="600" loading="lazy"></div>
+        <div class="rel-meta"><span class="rel-cat">CP-02</span><span class="rel-yr tnum">2025</span></div>
+        <div class="rel-title">Don't Cry Just Whine</div><div class="rel-sub">feat. Den Z</div>
+      </a>
+      <a href="/music/oh-nana.html" class="rel">
+        <div class="rel-art"><img src="images/love.webp" alt="Oh Nana cover" width="600" height="600" loading="lazy"></div>
+        <div class="rel-meta"><span class="rel-cat">CP-03</span><span class="rel-yr tnum">2024</span></div>
+        <div class="rel-title">Oh Nana</div><div class="rel-sub">Single</div>
+      </a>
+      <a href="/music/playita.html" class="rel">
+        <div class="rel-art"><img src="images/coney-island.webp" alt="Playita cover" width="600" height="600" loading="lazy"></div>
+        <div class="rel-meta"><span class="rel-cat">CP-04</span><span class="rel-yr tnum">2023</span></div>
+        <div class="rel-title">Playita</div><div class="rel-sub">Single</div>
+      </a>
+      <a href="/music/necio.html" class="rel">
+        <div class="rel-art"><img src="images/necio.webp" alt="Necio cover" width="600" height="600" loading="lazy"></div>
+        <div class="rel-meta"><span class="rel-cat">CP-05</span><span class="rel-yr tnum">2023</span></div>
+        <div class="rel-title">Necio</div><div class="rel-sub">Single</div>
+      </a>
+      <div class="rel rel-empty" aria-hidden="true"></div>
+    </div>
+    <div class="cat-foot"><a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="linkarrow">Full catalog on Spotify ↗</a></div>
+  </section>
+
+  <!-- PRESS PHOTOS -->
+  <section class="sec">
+    <div class="sec-head"><div><span class="eyebrow">// Press Photos</span><h2>Gallery</h2></div><span class="idx">Doc 04 — Assets</span></div>
+    <div class="gallery" style="margin-top:8px;">
+      <a href="images/press-1.webp" target="_blank" rel="noopener"><img src="images/press-1.webp" alt="Calvin Priice press photo" width="1500" height="2000" loading="lazy"></a>
+      <a href="images/hero2.webp" target="_blank" rel="noopener"><img src="images/hero2.webp" alt="Calvin Priice press photo" width="1079" height="1319" loading="lazy"></a>
+      <a href="images/blog-studio-4.webp" target="_blank" rel="noopener"><img src="images/blog-studio-4.webp" alt="Calvin Priice in the studio" width="1200" height="1200" loading="lazy"></a>
+      <a href="images/blog-studio-3.webp" target="_blank" rel="noopener"><img src="images/blog-studio-3.webp" alt="Calvin Priice in the studio" width="1400" height="1400" loading="lazy"></a>
+      <a href="images/about.webp" target="_blank" rel="noopener"><img src="images/about.webp" alt="Calvin Priice portrait" width="1080" height="1620" loading="lazy"></a>
+    </div>
+    <p class="note">Tap any photo to open full size. Higher-resolution press images available on request.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" style="border-bottom:none;">
+    <div class="sec-head"><div><span class="eyebrow">// Contact</span><h2>Get In Touch</h2></div><span class="idx">Doc 05</span></div>
+    <div style="max-width:640px;margin-top:8px;">
+      <div class="contact-row"><span class="contact-k">Booking</span><span class="contact-v"><a href="mailto:booking@calvinpriice.com">booking@calvinpriice.com</a></span></div>
+      <div class="contact-row"><span class="contact-k">Music</span><span class="contact-v"><a href="mailto:music@calvinpriice.com">music@calvinpriice.com</a></span></div>
+      <div class="contact-row"><span class="contact-k">General</span><span class="contact-v"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></span></div>
+    </div>
+    <div class="cat-foot" style="gap:24px;">
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="mono" style="border-bottom:1px solid var(--line);padding-bottom:2px;">Spotify</a>
+      <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener" class="mono" style="border-bottom:1px solid var(--line);padding-bottom:2px;">Apple Music</a>
+      <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener" class="mono" style="border-bottom:1px solid var(--line);padding-bottom:2px;">YouTube</a>
+      <a href="https://instagram.com/calvinpriice" target="_blank" rel="noopener" class="mono" style="border-bottom:1px solid var(--line);padding-bottom:2px;">Instagram</a>
+    </div>
+  </section>
+</div>
+
+<footer class="foot"><div class="wrap">
+  <div class="foot-word">Calvin Priice</div>
+  <div class="foot-cols">
+    <div class="foot-col"><h4>Listen</h4>
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <div class="foot-col"><h4>Follow</h4>
+      <a href="https://instagram.com/calvinpriice" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/CalvinPriiceMusic/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/calvinpriice" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+    <div class="foot-col"><h4>Site</h4>
+      <a href="/">Home</a>
+      <a href="/#catalog">Music</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/#book">Book</a>
+    </div>
+    <div class="foot-col"><h4>Studio</h4>
+      <p>Calvin Priice<br>The Bronx, New York<br>booking@calvinpriice.com</p>
     </div>
   </div>
-  <div class="epk-hero-photo">
-    <img src="images/hero2.webp" alt="Calvin Priice" width="1079" height="1319">
+  <div class="foot-bottom">
+    <span>© <span id="yr">2026</span> Calvin Priice — All rights reserved</span>
+    <span>Bronx, NY · Multi-genre</span>
   </div>
-</header>
-
-<!-- BIO -->
-<section class="section bio">
-  <span class="section-label">Biography</span>
-  <h2>The Story</h2>
-  <p class="bio-lead">"Clutch by nature, classic by design."</p>
-  <p>Calvin Priice is a multi-genre recording artist from The Bronx, New York, whose music lives at the intersection of faith, love, and real life. A New York native with Dominican and Puerto Rican roots, he writes and records in both English and Spanish — moving between genres and languages the way he actually talks.</p>
-  <p>His sound doesn't fit in one box, and that's exactly the point. Across a growing catalog of singles, his music reflects personal growth, spiritual depth, and the kind of honesty that makes people feel less alone. Independent and self-driven, Calvin builds his world on his own terms — from the studio to the streets.</p>
-</section>
-
-<!-- AT A GLANCE -->
-<section class="section">
-  <span class="section-label">At a Glance</span>
-  <h2>The Facts</h2>
-  <div class="facts">
-    <div class="fact"><div class="fact-k">Based In</div><div class="fact-v">The Bronx, New York</div></div>
-    <div class="fact"><div class="fact-k">Heritage</div><div class="fact-v">Dominican &amp; Puerto Rican</div></div>
-    <div class="fact"><div class="fact-k">Languages</div><div class="fact-v">English &amp; Spanish</div></div>
-    <div class="fact"><div class="fact-k">Genre</div><div class="fact-v">Multi-Genre</div></div>
-    <div class="fact"><div class="fact-k">Status</div><div class="fact-v">Independent</div></div>
-    <div class="fact"><div class="fact-k">On</div><div class="fact-v">Spotify · Apple · YouTube</div></div>
-  </div>
-</section>
-
-<!-- MUSIC -->
-<section class="section">
-  <span class="section-label">Music</span>
-  <h2>Listen</h2>
-  <div class="stream-row">
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="btn-primary">Spotify</a>
-    <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener" class="btn-ghost">Apple Music</a>
-    <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener" class="btn-ghost">YouTube</a>
-  </div>
-  <div class="release-grid">
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="release-card">
-      <div class="release-art"><img src="images/she-dont-care.webp" alt="She Don't Care" width="600" height="600" loading="lazy"></div>
-      <div class="release-title">She Don't Care <span>Latest Release</span></div>
-    </a>
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="release-card">
-      <div class="release-art"><img src="images/necio.webp" alt="Necio" width="600" height="600" loading="lazy"></div>
-      <div class="release-title">Necio</div>
-    </a>
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="release-card">
-      <div class="release-art"><img src="images/coney-island.webp" alt="Playita" width="600" height="600" loading="lazy"></div>
-      <div class="release-title">Playita</div>
-    </a>
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="release-card">
-      <div class="release-art"><img src="images/love.webp" alt="Oh Nana" width="600" height="600" loading="lazy"></div>
-      <div class="release-title">Oh Nana</div>
-    </a>
-  </div>
-</section>
-
-<!-- PRESS PHOTOS -->
-<section class="section">
-  <span class="section-label">Press Photos</span>
-  <h2>Gallery</h2>
-  <div class="photo-grid">
-    <a href="images/press-1.webp" target="_blank" rel="noopener"><img src="images/press-1.webp" alt="Calvin Priice press photo" width="1500" height="2000" loading="lazy"></a>
-    <a href="images/hero2.webp" target="_blank" rel="noopener"><img src="images/hero2.webp" alt="Calvin Priice press photo" width="1079" height="1319" loading="lazy"></a>
-    <a href="images/blog-studio-4.webp" target="_blank" rel="noopener"><img src="images/blog-studio-4.webp" alt="Calvin Priice in the studio" width="1200" height="1200" loading="lazy"></a>
-    <a href="images/blog-studio-3.webp" target="_blank" rel="noopener"><img src="images/blog-studio-3.webp" alt="Calvin Priice in the studio" width="1400" height="1400" loading="lazy"></a>
-    <a href="images/about.webp" target="_blank" rel="noopener"><img src="images/about.webp" alt="Calvin Priice portrait" width="1080" height="1620" loading="lazy"></a>
-  </div>
-  <p class="photo-note">Tap any photo to open full size. Higher-resolution press images available on request.</p>
-</section>
-
-<!-- CONTACT -->
-<section class="section">
-  <span class="section-label">Contact</span>
-  <h2>Get In Touch</h2>
-  <div class="contact-grid">
-    <div><div class="contact-k">Booking</div><div class="contact-v"><a href="mailto:booking@calvinpriice.com">booking@calvinpriice.com</a></div></div>
-    <div><div class="contact-k">Music &amp; Features</div><div class="contact-v"><a href="mailto:music@calvinpriice.com">music@calvinpriice.com</a></div></div>
-    <div><div class="contact-k">General</div><div class="contact-v"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></div></div>
-  </div>
-  <div class="social-row">
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener">Spotify</a>
-    <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener">Apple Music</a>
-    <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener">YouTube</a>
-    <a href="https://instagram.com/calvinpriice" target="_blank" rel="noopener">Instagram</a>
-  </div>
-</section>
-
-<!-- TODO (Calvin): optional additions when you have them — monthly listeners / stream counts,
-     notable performances or placements, press quotes/features, management info. -->
-
-<footer>
-  <div class="footer-logo">CALVIN PRIICE</div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="index.html#booking">Book Now</a>
-  </div>
-  <div class="footer-copy">© <span id="yr">2026</span> Calvin Priice. All rights reserved.</div>
-</footer>
+</div></footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>

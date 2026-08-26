@@ -39,585 +39,289 @@
 <link rel="preload" as="image" href="images/hero2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Expanded:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/site.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --black:#0E0E0F;
-  --charcoal:#1A1A1C;
-  --white:#F4EFE3;
-  --accent:#8FC7E8;
-  --accent2:#5BA3CF;
-  --muted:rgba(244,239,227,0.58);
-  --border:rgba(143,199,232,0.16);
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
-
-/* NAV — text only, no boxes */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(14,14,15,0.85) 0%,rgba(14,14,15,0.5) 60%,transparent 100%);}
-.nav-logo{font-family:'Anton',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--white);text-decoration:none;text-shadow:0 2px 14px rgba(0,0,0,0.9);}
-.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
-.nav-links li a{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#F4EFE3;text-decoration:none;transition:color 0.2s;text-shadow:0 2px 12px rgba(0,0,0,0.95),0 0 16px rgba(0,0,0,0.7);}
-.nav-links li a:hover{color:var(--accent);}
-.nav-book{color:var(--accent)!important;}
-
-/* HERO */
-.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
-.hero-bg{position:absolute;inset:0;}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(20%);}
-.hero-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");background-size:200px 200px;background-repeat:repeat;opacity:0.4;pointer-events:none;}
-.hero-fade{position:absolute;inset:0;background:linear-gradient(to top,var(--black) 0%,rgba(14,14,15,0.5) 40%,rgba(14,14,15,0.1) 70%,transparent 100%);}
-.hero-fade-left{position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,transparent 50%);}
-.hero-content{position:relative;z-index:2;padding:0 40px 60px;width:100%;}
-.hero-tag{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.32em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block;}
-.hero-name{font-family:'Anton',sans-serif;font-size:clamp(2.8rem,7vw,6.5rem);line-height:0.9;letter-spacing:0.02em;color:var(--white);margin-bottom:24px;text-transform:uppercase;}
-.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(244,239,227,0.7);line-height:1.7;max-width:360px;margin-bottom:36px;}
-.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
-.btn-primary{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:14px 32px;text-decoration:none;display:inline-block;transition:background 0.2s,color 0.2s;border-radius:3px;}
-.btn-primary:hover{background:var(--white);color:var(--black);}
-.btn-ghost{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:transparent;color:rgba(244,239,227,0.7);padding:14px 32px;border:1px solid var(--border);text-decoration:none;display:inline-block;transition:all 0.2s;border-radius:3px;}
-.btn-ghost:hover{border-color:var(--accent);color:var(--white);}
-.hero-scroll{position:absolute;bottom:40px;right:40px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;}
-.hero-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--accent));}
-.hero-scroll-text{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;}
-.hero-socials{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;gap:16px;}
-.hero-social-link{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,239,227,0.6);text-decoration:none;writing-mode:vertical-rl;transition:color 0.2s;text-shadow:0 2px 10px rgba(0,0,0,0.6);}
-.hero-social-link:hover{color:var(--accent);}
-
-/* MARQUEE */
-.marquee-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;overflow:hidden;position:relative;}
-.marquee-track{display:flex;gap:0;animation:marquee 120s linear infinite;width:max-content;}
-.marquee-item{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(244,239,227,0.55);padding:0 40px;white-space:nowrap;}
-.marquee-item span{color:var(--accent);margin:0 12px;}
-@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-
-/* SECTIONS */
-.section{padding:120px 40px;}
-.section-label{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block;}
-.section-title{font-family:'Anton',sans-serif;font-size:clamp(3rem,8vw,7rem);line-height:0.92;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:48px;}
-
-/* MUSIC SECTION */
-.music-section{background:var(--black);padding:120px 40px;}
-.music-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-.music-right{display:flex;flex-direction:column;gap:20px;}
-.stream-links{display:flex;flex-direction:column;gap:1px;margin-top:32px;}
-.stream-link{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--white);transition:all 0.2s;}
-.stream-link:hover{padding-left:12px;}
-.stream-link:hover .stream-arrow{color:var(--accent);}
-.stream-name{font-family:'Oswald',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;}
-.stream-sub{font-size:11px;color:var(--muted);}
-.stream-arrow{font-size:20px;color:var(--muted);transition:color 0.2s;}
-
-/* RELEASE GRID */
-.release-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.release-card{text-decoration:none;color:var(--white);display:block;}
-.release-art{position:relative;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);background:var(--charcoal);}
-.release-art img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease,filter 0.3s;filter:grayscale(15%);}
-.release-card:hover .release-art img{transform:scale(1.06);filter:grayscale(0%);}
-.release-card:hover .release-art{border-color:var(--accent);}
-.release-title{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-top:10px;line-height:1.3;}
-.release-title span{display:block;font-weight:400;font-size:10px;color:var(--muted);letter-spacing:0.12em;margin-top:2px;}
-.release-all{display:inline-block;margin-top:28px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:4px;transition:border-color 0.2s;}
-.release-all:hover{border-color:var(--accent);}
-
-/* ABOUT SECTION */
-.about-section{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;}
-.about-bg{position:absolute;inset:0;}
-.about-bg img{width:100%;height:100%;object-fit:cover;object-position:top;opacity:0.5;filter:grayscale(20%);}
-.about-bg-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(14,14,15,0.88) 40%,rgba(14,14,15,0.25) 100%);}
-.about-content{position:relative;z-index:2;max-width:600px;padding:120px 40px;}
-.about-quote{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;color:var(--white);margin-bottom:32px;}
-.about-quote em{color:var(--accent);font-style:italic;}
-.about-body{font-size:15px;font-weight:300;color:rgba(244,239,227,0.6);line-height:1.9;margin-bottom:20px;}
-.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
-.about-tag{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;border:1px solid var(--border);color:rgba(244,239,227,0.7);padding:6px 14px;border-radius:2px;}
-
-/* FAQ */
-.faq-section{background:var(--black);padding:120px 40px;border-top:1px solid var(--border);}
-.faq-inner{max-width:820px;margin:0 auto;}
-.faq-item{border-bottom:1px solid var(--border);padding:28px 0;}
-.faq-item:first-of-type{border-top:1px solid var(--border);}
-.faq-q{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--white);margin-bottom:14px;}
-.faq-a{font-size:15px;font-weight:300;color:rgba(244,239,227,0.62);line-height:1.9;}
-.faq-a a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border);}
-
-/* VIDEOS */
-.video-section{padding:80px 40px;background:var(--black);}
-.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.video-item{position:relative;padding-top:56.25%;background:#111;overflow:hidden;cursor:pointer;}
-.video-item iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
-.video-thumb{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:transform 0.5s,filter 0.3s;}
-.video-item:hover .video-thumb{transform:scale(1.04);filter:grayscale(0%);}
-.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;border:none;background:rgba(143,199,232,0.92);cursor:pointer;transition:background 0.2s,transform 0.2s;z-index:2;}
-.video-play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #0E0E0F;}
-.video-item:hover .video-play{background:var(--white);transform:translate(-50%,-50%) scale(1.08);}
-
-/* NEWSLETTER */
-.newsletter-section{background:var(--charcoal);border-top:1px solid var(--border);padding:100px 40px;}
-.newsletter-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.newsletter-left .nl-title{font-family:'Anton',sans-serif;font-size:clamp(3rem,6vw,5rem);line-height:0.92;text-transform:uppercase;margin-bottom:16px;}
-.newsletter-left p{font-size:14px;color:var(--muted);line-height:1.8;}
-
-/* BOOKING */
-.booking-section{padding:120px 40px;background:var(--black);}
-.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
-.booking-info p{font-size:14px;color:var(--muted);line-height:1.9;max-width:380px;margin-bottom:40px;}
-.contact-item{margin-bottom:24px;}
-.contact-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
-.contact-val{font-size:14px;color:var(--white);}
-.contact-val a{color:var(--white);text-decoration:none;transition:color 0.2s;}
-.contact-val a:hover{color:var(--accent);}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
-.f-group{margin-bottom:20px;}
-.f-input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:14px 0;font-size:13px;color:var(--white);font-family:'Inter',sans-serif;font-weight:300;outline:none;transition:border-color 0.2s;}
-.f-input::placeholder{color:var(--muted);}
-.f-input:focus{border-bottom-color:var(--accent);}
-.f-textarea{resize:none;min-height:100px;}
-.f-submit{margin-top:12px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:16px 40px;border:none;cursor:pointer;transition:background 0.2s;border-radius:3px;}
-.f-submit:hover{background:var(--white);}
-.f-success{display:none;font-size:13px;color:var(--accent);margin-top:16px;font-weight:300;}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
-.footer-logo{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;}
-.footer-links{display:flex;gap:28px;flex-wrap:wrap;}
-.footer-links a{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--accent);}
-.footer-copy{font-size:10px;color:var(--muted);letter-spacing:0.05em;}
-
-/* MAILERLITE overrides */
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper{background:transparent!important;border:none!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent{display:none!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions{display:none!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input{background:#1A1A1C!important;color:var(--white)!important;border-color:var(--border)!important;border-radius:0!important;font-family:'Inter',sans-serif!important;font-size:13px!important;padding:14px 16px!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button{background:var(--accent)!important;color:var(--black)!important;border:none!important;border-radius:0!important;font-family:'Oswald',sans-serif!important;font-size:12px!important;font-weight:600!important;letter-spacing:0.2em!important;text-transform:uppercase!important;padding:14px 28px!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover{background:var(--white)!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4{color:var(--accent)!important;font-family:'Oswald',sans-serif!important;font-size:14px!important;font-weight:400!important;}
-#mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p{color:var(--muted)!important;font-family:'Inter',sans-serif!important;}
-.ml-form-embedSubmitLoad{display:none;}
-
-@media(max-width:768px){
-  nav{padding:20px 24px;background:linear-gradient(to bottom,rgba(14,14,15,0.9) 0%,rgba(14,14,15,0.5) 70%,transparent 100%);}
-  .nav-logo{font-size:18px;}
-  .nav-links{gap:14px;}
-  .nav-links li a{font-size:11px;letter-spacing:0.14em;}
-  .hero-content{padding:0 24px 48px;}
-  .hero-socials{display:none;}
-  .section{padding:80px 24px;}
-  .music-section,.booking-section,.newsletter-section{padding:80px 24px;}
-  .music-inner,.booking-inner,.newsletter-inner{grid-template-columns:1fr;gap:40px;}
-  .release-grid{grid-template-columns:repeat(2,1fr);}
-  .video-grid{grid-template-columns:1fr;}
-  .f-row{grid-template-columns:1fr;}
-  footer{padding:28px 24px;}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;}
-  .marquee-track{animation:none!important;}
-}
+/* MailerLite form — restyled to match the design system */
+#mlb2-41679917.ml-form-embedContainer{box-sizing:border-box;display:table;margin:0;width:100%!important;}
+#mlb2-41679917 .ml-form-embedWrapper{background:transparent!important;border:none!important;width:100%!important;}
+#mlb2-41679917 .ml-form-embedBody .ml-form-embedContent,#mlb2-41679917 .ml-form-embedBody .ml-form-embedPermissions{display:none!important;}
+#mlb2-41679917 .ml-form-formContent.horozintalForm{width:100%;}
+#mlb2-41679917 .ml-input-horizontal{width:100%!important;margin-bottom:12px;}
+#mlb2-41679917 .ml-button-horizontal{width:100%!important;}
+#mlb2-41679917 .ml-form-horizontalRow input{background:#FFFFFF!important;color:#101010!important;border:1px solid rgba(16,16,16,0.16)!important;border-radius:0!important;font-family:'Archivo','Helvetica Neue',sans-serif!important;font-size:14px!important;padding:13px 14px!important;width:100%!important;}
+#mlb2-41679917 .ml-form-horizontalRow input::placeholder{color:#6C6C64!important;}
+#mlb2-41679917 .ml-form-horizontalRow button,#mlb2-41679917 .ml-mobileButton-horizontal button{background:#101010!important;color:#E7E7E1!important;border:none!important;border-radius:0!important;font-family:'IBM Plex Mono',monospace!important;font-size:12px!important;font-weight:500!important;letter-spacing:0.12em!important;text-transform:uppercase!important;padding:14px!important;width:100%!important;cursor:pointer;transition:background .16s,color .16s;}
+#mlb2-41679917 .ml-form-horizontalRow button:hover,#mlb2-41679917 .ml-mobileButton-horizontal button:hover{background:#FF4A17!important;color:#FFFFFF!important;}
+#mlb2-41679917 .ml-form-successBody .ml-form-successContent h4{color:#FF4A17!important;font-family:'IBM Plex Mono',monospace!important;font-size:14px!important;font-weight:500!important;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;}
+#mlb2-41679917 .ml-form-successBody .ml-form-successContent p{color:#6C6C64!important;font-family:'Archivo',sans-serif!important;font-size:13px!important;}
+.ml-form-embedSubmitLoad{display:inline-block;width:16px;height:16px;}
+.ml-form-embedSubmitLoad:after{content:" ";display:block;width:10px;height:10px;margin:1px;border-radius:50%;border:3px solid #E7E7E1;border-color:#E7E7E1 #E7E7E1 #E7E7E1 transparent;animation:ml-spin 1.1s linear infinite;}
+@keyframes ml-spin{to{transform:rotate(360deg);}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
 </style>
 </head>
 <body>
 
+<!-- STATUS BAR -->
+<div class="topbar"><div class="wrap">
+  <span class="mono"><span class="dot"></span>Online — new music 2026</span>
+  <span class="mono">Bronx, NY · 40.84°N 73.86°W</span>
+</div></div>
+
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">CALVIN PRIICE</a>
-  <ul class="nav-links">
-    <li><a href="#music">Music</a></li>
+<nav class="nav"><div class="wrap">
+  <a href="/" class="brand">calvin priice<sup>®</sup></a>
+  <ul class="navlinks">
+    <li><a href="#catalog">Music</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="vlog.html">Vlog</a></li>
-    <li><a href="#booking" class="nav-book">Book Now</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/vlog.html">Vlog</a></li>
+    <li><a href="#book" class="book">Book</a></li>
   </ul>
-</nav>
+</div></nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="images/hero2.webp" alt="Calvin Priice" width="1600" height="2400" fetchpriority="high" style="object-position:center 20%;">
-  </div>
-  <div class="hero-grain"></div>
-  <div class="hero-fade"></div>
-  <div class="hero-fade-left"></div>
-  <div class="hero-content">
-    <span class="hero-tag">Recording Artist · The Bronx</span>
-    <h1 class="hero-name">Calvin Priice</h1>
-    <p class="hero-sub">New York native. Dominican &amp; Puerto Rican roots. Multi-genre artist where faith, love, and real life collide.</p>
-    <div class="hero-actions">
-      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="btn-primary">Stream Now</a>
-      <a href="#booking" class="btn-ghost">Book a Show</a>
+<section class="hero" id="top"><div class="wrap"><div class="hero-grid">
+  <div class="hero-left">
+    <span class="tick tl"></span><span class="tick bl"></span>
+    <span class="hero-eyebrow"><span class="sq">◆</span>&nbsp; Recording artist — Fig. 01</span>
+    <div>
+      <h1 class="hero-name">Calvin<br>Priice</h1>
+      <p class="hero-desc">Multi-genre · Dominican + Puerto Rican · The Bronx, NY</p>
+      <p class="hero-say">Music where faith, love, and real life collide.</p>
+    </div>
+    <div class="hero-cta">
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="btn btn-fill">Stream Now ↗</a>
+      <a href="#book" class="btn">Book a Show</a>
     </div>
   </div>
-  <div class="hero-socials">
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="hero-social-link">Spotify</a>
-    <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" class="hero-social-link">Apple</a>
-    <a href="https://www.youtube.com/@CalvinPriice" target="_blank" class="hero-social-link">YouTube</a>
-    <a href="https://instagram.com/calvinpriice" target="_blank" class="hero-social-link">Instagram</a>
+  <div class="hero-right">
+    <span class="tick tr"></span><span class="tick br"></span>
+    <img src="images/hero2.webp" alt="Calvin Priice" width="1079" height="1319" fetchpriority="high">
+    <div class="hero-cap"><span>hero.jpg</span><span>Calvin Priice / 2026</span></div>
   </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    <div class="hero-scroll-text">Scroll</div>
-  </div>
-</section>
+</div></div></section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <div class="marquee-item">She Don't Care <span>✦</span></div>
-    <div class="marquee-item">Don't Cry Just Whine <span>✦</span></div>
-    <div class="marquee-item">Dejavu <span>✦</span></div>
-    <div class="marquee-item">Nasty On Cam <span>✦</span></div>
-    <div class="marquee-item">Mala <span>✦</span></div>
-    <div class="marquee-item">Zona <span>✦</span></div>
-    <div class="marquee-item">Oh Nana <span>✦</span></div>
-    <div class="marquee-item">Pa' Jersey <span>✦</span></div>
-    <div class="marquee-item">Sube <span>✦</span></div>
-    <div class="marquee-item">Playita <span>✦</span></div>
-    <div class="marquee-item">Señal <span>✦</span></div>
-    <div class="marquee-item">Necio <span>✦</span></div>
-    <div class="marquee-item">Seguroski <span>✦</span></div>
-    <div class="marquee-item">Vuelve <span>✦</span></div>
-    <div class="marquee-item">Bella Hadid <span>✦</span></div>
-    <div class="marquee-item">Bye Bye <span>✦</span></div>
-    <div class="marquee-item">Solita <span>✦</span></div>
-    <div class="marquee-item">Loquito <span>✦</span></div>
-    <div class="marquee-item">Shopping Spree <span>✦</span></div>
-    <div class="marquee-item">Persigueme <span>✦</span></div>
-    <div class="marquee-item">Bestie <span>✦</span></div>
-    <div class="marquee-item">Downtown Love <span>✦</span></div>
-    <div class="marquee-item">Uptown Love <span>✦</span></div>
-    <div class="marquee-item">She Don't Care <span>✦</span></div>
-    <div class="marquee-item">Don't Cry Just Whine <span>✦</span></div>
-    <div class="marquee-item">Dejavu <span>✦</span></div>
-    <div class="marquee-item">Nasty On Cam <span>✦</span></div>
-    <div class="marquee-item">Mala <span>✦</span></div>
-    <div class="marquee-item">Zona <span>✦</span></div>
-    <div class="marquee-item">Oh Nana <span>✦</span></div>
-    <div class="marquee-item">Pa' Jersey <span>✦</span></div>
-    <div class="marquee-item">Sube <span>✦</span></div>
-    <div class="marquee-item">Playita <span>✦</span></div>
-    <div class="marquee-item">Señal <span>✦</span></div>
-    <div class="marquee-item">Necio <span>✦</span></div>
-    <div class="marquee-item">Seguroski <span>✦</span></div>
-    <div class="marquee-item">Vuelve <span>✦</span></div>
-    <div class="marquee-item">Bella Hadid <span>✦</span></div>
-    <div class="marquee-item">Bye Bye <span>✦</span></div>
-    <div class="marquee-item">Solita <span>✦</span></div>
-    <div class="marquee-item">Loquito <span>✦</span></div>
-    <div class="marquee-item">Shopping Spree <span>✦</span></div>
-    <div class="marquee-item">Persigueme <span>✦</span></div>
-    <div class="marquee-item">Bestie <span>✦</span></div>
-    <div class="marquee-item">Downtown Love <span>✦</span></div>
-    <div class="marquee-item">Uptown Love <span>✦</span></div>
+<!-- CATALOG / MUSIC -->
+<section class="sec" id="catalog"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">// Catalog</span><h2>Music</h2></div>
+    <span class="idx">Index 02 — Selected works</span>
   </div>
-</div>
-
-<!-- MUSIC -->
-<section class="music-section" id="music">
-  <div class="music-inner">
-    <div class="music-left">
-      <span class="section-label">Discography</span>
-      <h2 class="section-title">Music</h2>
-      <p style="font-size:14px;color:var(--muted);line-height:1.9;max-width:360px;">Stream all releases on your platform of choice. New music dropping soon — subscribe to stay first in line.</p>
-      <div class="stream-links">
-        <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="stream-link">
-          <div><div class="stream-name">Spotify</div><div class="stream-sub">Stream all releases</div></div>
-          <span class="stream-arrow">→</span>
-        </a>
-        <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" class="stream-link">
-          <div><div class="stream-name">Apple Music</div><div class="stream-sub">Listen on Apple</div></div>
-          <span class="stream-arrow">→</span>
-        </a>
-        <a href="https://www.youtube.com/@CalvinPriice" target="_blank" class="stream-link">
-          <div><div class="stream-name">YouTube</div><div class="stream-sub">Videos &amp; visuals</div></div>
-          <span class="stream-arrow">→</span>
-        </a>
-      </div>
+  <div class="cat-top">
+    <div class="cat-intro">
+      <p>Stream every release on your platform of choice. New music dropping through 2026 — subscribe below to stay first in line.</p>
     </div>
-    <div class="music-right">
-      <div class="release-grid">
-        <a href="/music/she-dont-care.html" class="release-card">
-          <div class="release-art"><img src="images/she-dont-care.webp" alt="She Don't Care cover" width="600" height="600" loading="lazy"></div>
-          <div class="release-title">She Don't Care <span>Latest Release</span></div>
-        </a>
-        <a href="/music/necio.html" class="release-card">
-          <div class="release-art"><img src="images/necio.webp" alt="Necio cover" width="600" height="600" loading="lazy"></div>
-          <div class="release-title">Necio</div>
-        </a>
-        <a href="/music/dont-cry-just-whine.html" class="release-card">
-          <div class="release-art"><img src="images/dont-cry-just-whine.webp" alt="Don't Cry Just Whine cover" width="600" height="600" loading="lazy"></div>
-          <div class="release-title">Don't Cry Just Whine <span>feat. Den Z</span></div>
-        </a>
-        <a href="/music/playita.html" class="release-card">
-          <div class="release-art"><img src="images/coney-island.webp" alt="Playita cover" width="600" height="600" loading="lazy"></div>
-          <div class="release-title">Playita</div>
-        </a>
-        <a href="/music/oh-nana.html" class="release-card">
-          <div class="release-art"><img src="images/love.webp" alt="Oh Nana cover" width="600" height="600" loading="lazy"></div>
-          <div class="release-title">Oh Nana</div>
-        </a>
-      </div>
-      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" class="release-all">View all releases →</a>
+    <div class="streams">
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="stream"><div><div class="nm">Spotify</div><div class="sub">Stream all releases</div></div><span class="ar">↗</span></a>
+      <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener" class="stream"><div><div class="nm">Apple Music</div><div class="sub">Listen on Apple</div></div><span class="ar">↗</span></a>
+      <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener" class="stream"><div><div class="nm">YouTube</div><div class="sub">Videos &amp; visuals</div></div><span class="ar">↗</span></a>
     </div>
   </div>
-  <div style="margin-top:56px;">
-    <iframe style="border-radius:12px;width:100%;border:1px solid var(--border);" src="https://open.spotify.com/embed/artist/55Z3Xi6ID6z799AyGHjr6u?utm_source=generator&theme=0" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Calvin Priice — Spotify player"></iframe>
+  <div class="grid">
+    <a href="/music/she-dont-care.html" class="rel">
+      <div class="rel-art"><img src="images/she-dont-care.webp" alt="She Don't Care cover" width="600" height="600" loading="lazy"></div>
+      <div class="rel-meta"><span class="rel-cat">CP-01</span><span class="rel-yr tnum">2025</span></div>
+      <div class="rel-title">She Don't Care</div>
+      <div class="rel-sub"><span class="tag">Latest</span></div>
+    </a>
+    <a href="/music/dont-cry-just-whine.html" class="rel">
+      <div class="rel-art"><img src="images/dont-cry-just-whine.webp" alt="Don't Cry Just Whine cover" width="600" height="600" loading="lazy"></div>
+      <div class="rel-meta"><span class="rel-cat">CP-02</span><span class="rel-yr tnum">2025</span></div>
+      <div class="rel-title">Don't Cry Just Whine</div>
+      <div class="rel-sub">feat. Den Z</div>
+    </a>
+    <a href="/music/oh-nana.html" class="rel">
+      <div class="rel-art"><img src="images/love.webp" alt="Oh Nana cover" width="600" height="600" loading="lazy"></div>
+      <div class="rel-meta"><span class="rel-cat">CP-03</span><span class="rel-yr tnum">2024</span></div>
+      <div class="rel-title">Oh Nana</div>
+      <div class="rel-sub">Single</div>
+    </a>
+    <a href="/music/playita.html" class="rel">
+      <div class="rel-art"><img src="images/coney-island.webp" alt="Playita cover" width="600" height="600" loading="lazy"></div>
+      <div class="rel-meta"><span class="rel-cat">CP-04</span><span class="rel-yr tnum">2023</span></div>
+      <div class="rel-title">Playita</div>
+      <div class="rel-sub">Single</div>
+    </a>
+    <a href="/music/necio.html" class="rel">
+      <div class="rel-art"><img src="images/necio.webp" alt="Necio cover" width="600" height="600" loading="lazy"></div>
+      <div class="rel-meta"><span class="rel-cat">CP-05</span><span class="rel-yr tnum">2023</span></div>
+      <div class="rel-title">Necio</div>
+      <div class="rel-sub">Single</div>
+    </a>
+    <div class="rel rel-empty" aria-hidden="true"></div>
   </div>
-</section>
-
-<!-- VIDEOS -->
-<div class="video-section">
-  <div class="video-grid">
-    <div class="video-item" data-yt="c0kuhVKozSM">
-      <img class="video-thumb" src="https://i.ytimg.com/vi/c0kuhVKozSM/hqdefault.jpg" alt="Calvin Priice video" width="480" height="360" loading="lazy">
-      <button class="video-play" aria-label="Play video"></button>
-    </div>
-    <div class="video-item" data-yt="U4TqKl5fVmY">
-      <img class="video-thumb" src="https://i.ytimg.com/vi/U4TqKl5fVmY/hqdefault.jpg" alt="Calvin Priice video" width="480" height="360" loading="lazy">
-      <button class="video-play" aria-label="Play video"></button>
-    </div>
-    <div class="video-item" data-yt="0aK9xqqz_7Y">
-      <img class="video-thumb" src="https://i.ytimg.com/vi/0aK9xqqz_7Y/hqdefault.jpg" alt="Calvin Priice video" width="480" height="360" loading="lazy">
-      <button class="video-play" aria-label="Play video"></button>
-    </div>
-    <div class="video-item" data-yt="pXapwlyQdrw">
-      <img class="video-thumb" src="https://i.ytimg.com/vi/pXapwlyQdrw/hqdefault.jpg" alt="Calvin Priice video" width="480" height="360" loading="lazy">
-      <button class="video-play" aria-label="Play video"></button>
-    </div>
+  <div class="cat-foot">
+    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener" class="linkarrow">View all releases ↗</a>
+    <span class="mono">11 singles · 2018–2025</span>
   </div>
-</div>
+  <div class="embed-tile">
+    <div class="cap"><span>player.spotify</span><span>Live</span></div>
+    <iframe src="https://open.spotify.com/embed/artist/55Z3Xi6ID6z799AyGHjr6u?utm_source=generator&theme=0" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Calvin Priice — Spotify"></iframe>
+  </div>
+</div></section>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-bg">
-    <img src="images/about.webp" alt="Calvin Priice" width="1600" height="2000" loading="lazy" style="object-position:center top;">
-    <div class="about-bg-fade"></div>
+<section class="sec" id="about"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">// Profile</span><h2>About</h2></div>
+    <span class="idx">Index 03 — The story</span>
   </div>
-  <div class="about-content">
-    <span class="section-label">The Story</span>
-    <h2 class="about-quote">"Clutch by nature, <em>Classic by design.</em>"</h2>
-    <p class="about-body">New York native with Dominican and Puerto Rican roots, Calvin Priice — often searched as Calvin Price — is a multi-genre recording artist whose music lives at the intersection of faith, love, and real life. His sound doesn't fit in one box — and that's exactly the point.</p>
-    <p class="about-body">His music reflects personal growth, spiritual depth, and the kind of honesty that makes people feel less alone.</p>
-    <div class="about-tags">
-      <span class="about-tag">New York</span>
-      <span class="about-tag">Dominican &amp; Puerto Rican</span>
-      <span class="about-tag">Multi-Genre</span>
-      <span class="about-tag">Faith-Driven</span>
-      <span class="about-tag">Independent</span>
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="about-q">Clutch by nature, <em>classic by design.</em></p>
+      <p class="about-body">New York native with Dominican and Puerto Rican roots, Calvin Priice — often searched as Calvin Price — is a multi-genre recording artist whose music lives at the intersection of faith, love, and real life. His sound doesn't fit in one box, and that's exactly the point.</p>
+      <p class="about-body">His music reflects personal growth, spiritual depth, and the kind of honesty that makes people feel less alone.</p>
+    </div>
+    <div class="about-right">
+      <div class="spec-row"><span class="spec-k">Origin</span><span class="spec-v">The Bronx, New York</span></div>
+      <div class="spec-row"><span class="spec-k">Roots</span><span class="spec-v">Dominican + Puerto Rican</span></div>
+      <div class="spec-row"><span class="spec-k">Genre</span><span class="spec-v">Multi-genre</span></div>
+      <div class="spec-row"><span class="spec-k">Themes</span><span class="spec-v">Faith · Love · Real life</span></div>
+      <div class="spec-row"><span class="spec-k">Status</span><span class="spec-v">Independent</span></div>
+      <div class="about-photo">
+        <img src="images/about.webp" alt="Calvin Priice" width="1080" height="810" loading="lazy">
+        <div class="cap"><span>about.jpg</span><span>Fig. 02</span></div>
+      </div>
     </div>
   </div>
-</section>
+</div></section>
+
+<!-- VIDEO -->
+<section class="sec" id="video"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">// Visuals</span><h2>Video</h2></div>
+    <span class="idx">Index 04 — Official</span>
+  </div>
+  <div class="vid-grid">
+    <div class="vid" data-yt="c0kuhVKozSM"><img class="vthumb" src="https://i.ytimg.com/vi/c0kuhVKozSM/hqdefault.jpg" alt="Calvin Priice video" loading="lazy"><span class="play" aria-label="Play video"></span><span class="vcap">reel 01 — official visual</span></div>
+    <div class="vid" data-yt="U4TqKl5fVmY"><img class="vthumb" src="https://i.ytimg.com/vi/U4TqKl5fVmY/hqdefault.jpg" alt="Calvin Priice video" loading="lazy"><span class="play" aria-label="Play video"></span><span class="vcap">reel 02 — official visual</span></div>
+    <div class="vid" data-yt="0aK9xqqz_7Y"><img class="vthumb" src="https://i.ytimg.com/vi/0aK9xqqz_7Y/hqdefault.jpg" alt="Calvin Priice video" loading="lazy"><span class="play" aria-label="Play video"></span><span class="vcap">reel 03 — official visual</span></div>
+    <div class="vid" data-yt="pXapwlyQdrw"><img class="vthumb" src="https://i.ytimg.com/vi/pXapwlyQdrw/hqdefault.jpg" alt="Calvin Priice video" loading="lazy"><span class="play" aria-label="Play video"></span><span class="vcap">reel 04 — official visual</span></div>
+  </div>
+</div></section>
 
 <!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="faq-inner">
-    <span class="section-label">FAQ</span>
-    <h2 class="section-title" style="font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:40px;">Frequently Asked</h2>
-    <div class="faq-item">
-      <div class="faq-q">Is Calvin Priice the same as Calvin Price?</div>
-      <p class="faq-a">Yes. Calvin Priice is the official spelling of the artist's name — the double "i" is intentional. He's often searched as "Calvin Price," but his music, social profiles, and this official site all use the spelling <strong>Calvin Priice</strong>.</p>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Where is Calvin Priice from?</div>
-      <p class="faq-a">Calvin Priice is from The Bronx, New York, with Dominican and Puerto Rican roots.</p>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What kind of music does Calvin Priice make?</div>
-      <p class="faq-a">Multi-genre — pop, R&amp;B, hip-hop, funk, and Latin/EDM — built around themes of faith, love, and real life. <a href="/index.html#music">Listen to his latest music</a>.</p>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Where can I stream Calvin Priice?</div>
-      <p class="faq-a">On <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener">Spotify</a>, <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener">Apple Music</a>, <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener">YouTube</a>, and most major platforms.</p>
-    </div>
+<section class="sec" id="faq"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">// FAQ</span><h2>Frequently Asked</h2></div>
+    <span class="idx">Index 05</span>
   </div>
-</section>
+  <div style="padding:8px 0 34px;">
+    <div class="faq-row"><span class="faq-n">01</span><div><div class="faq-q">Is Calvin Priice the same as Calvin Price?</div><p class="faq-a">Yes. Calvin Priice is the official spelling of the artist's name — the double "i" is intentional. He's often searched as "Calvin Price," but his music, social profiles, and this official site all use the spelling <strong>Calvin Priice</strong>.</p></div></div>
+    <div class="faq-row"><span class="faq-n">02</span><div><div class="faq-q">Where is Calvin Priice from?</div><p class="faq-a">Calvin Priice is from The Bronx, New York, with Dominican and Puerto Rican roots.</p></div></div>
+    <div class="faq-row"><span class="faq-n">03</span><div><div class="faq-q">What kind of music does Calvin Priice make?</div><p class="faq-a">Multi-genre — pop, R&amp;B, hip-hop, funk, and Latin/EDM — built around themes of faith, love, and real life. <a href="#catalog">Listen to his latest music</a>.</p></div></div>
+    <div class="faq-row"><span class="faq-n">04</span><div><div class="faq-q">Where can I stream Calvin Priice?</div><p class="faq-a">On <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener">Spotify</a>, <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener">Apple Music</a>, <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener">YouTube</a>, and most major platforms.</p></div></div>
+  </div>
+</div></section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter-section">
-  <div class="newsletter-inner">
-    <div class="newsletter-left">
-      <span class="section-label">Stay Connected</span>
-      <h2 class="nl-title">Join the Fanbase</h2>
-      <p>New music, show dates &amp; exclusive drops. Be first to know — always.</p>
-    </div>
-    <div class="newsletter-right">
-      <style type="text/css">
-      .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px;}
-      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
-      .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-spin 1.2s linear infinite;}
-      @keyframes ml-spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-      #mlb2-41679917.ml-form-embedContainer{box-sizing:border-box;display:table;margin:0;position:static;width:100%!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper{background:transparent!important;border:none!important;box-sizing:border-box;display:inline-block!important;margin:0;padding:0;position:relative;width:100%!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper.embedForm{max-width:100%;width:100%;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody{padding:0;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent{display:none!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions{display:none!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent.horozintalForm{margin:0;padding:0;width:100%;float:left;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow{height:auto;width:100%;float:left;}
-      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal{width:70%;float:left;}
-      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal{width:30%;float:left;}
-      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .horizontal-fields{box-sizing:border-box;float:left;padding-right:0;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input{background:#1A1A1C!important;color:#F4EFE3!important;border-color:rgba(143,199,232,0.16)!important;border-radius:0!important;border-style:solid!important;border-width:1px!important;font-family:'Inter',sans-serif!important;font-size:13px!important;padding:14px 16px!important;width:100%!important;box-sizing:border-box!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::placeholder{color:rgba(244,239,227,0.4)!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button{background:#8FC7E8!important;color:#0E0E0F!important;border:none!important;border-radius:0!important;font-family:'Oswald',sans-serif!important;font-size:12px!important;font-weight:600!important;letter-spacing:0.2em!important;text-transform:uppercase!important;padding:14px 28px!important;width:100%!important;cursor:pointer;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover{background:#F4EFE3!important;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody{padding:0;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4{color:#8FC7E8!important;font-family:'Oswald',sans-serif!important;font-size:16px!important;font-weight:400!important;margin-bottom:8px;}
-      #mlb2-41679917.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p{color:rgba(244,239,227,0.5)!important;font-family:'Inter',sans-serif!important;font-size:13px!important;}
-      .ml-mobileButton-horizontal{display:none;}
-      @media only screen and (max-width:590px){
-        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal{width:100%!important;}
-        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal{display:none!important;}
-        .ml-mobileButton-horizontal{display:inline-block!important;margin-top:10px;width:100%;}
-        #mlb2-41679917 .ml-mobileButton-horizontal button{background:#8FC7E8!important;color:#0E0E0F!important;border:none!important;font-family:'Oswald',sans-serif!important;font-size:12px!important;font-weight:600!important;letter-spacing:0.2em!important;text-transform:uppercase!important;padding:14px!important;width:100%!important;cursor:pointer;}
-      }
-      
-/* --- 5-item nav fits small screens (added with Vlog) --- */
-@media(max-width:860px){.nav-links{gap:18px;}.nav-links li a{font-size:11px;letter-spacing:0.12em;}}
-@media(max-width:560px){nav{padding:14px 16px;flex-wrap:wrap;gap:8px;}.nav-logo{font-size:18px;}.nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-start;width:100%;}.nav-links li a{font-size:10px;letter-spacing:0.08em;}}
-</style>
-      <div id="mlb2-41679917" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41679917">
-        <div class="ml-form-align-center">
-          <div class="ml-form-embedWrapper embedForm">
-            <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
-              <div class="ml-form-embedContent" style="display:none;"></div>
-              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/subscribe" data-code="" method="post" target="_blank">
-                <div class="ml-form-formContent horozintalForm">
-                  <div class="ml-form-horizontalRow">
-                    <div class="ml-input-horizontal">
-                      <div style="width:100%;" class="horizontal-fields">
-                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                          <input type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ml-button-horizontal primary">
-                      <button type="submit" class="primary">Subscribe</button>
-                      <button disabled="disabled" style="display:none;" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
-                    </div>
+<!-- CONNECT + BOOK -->
+<section class="sec" id="book"><div class="wrap"><div class="duo">
+  <div class="connect" id="newsletter">
+    <span class="eyebrow">// Subscribe</span>
+    <h3>Join the<br>Fanbase</h3>
+    <p>New music, show dates &amp; exclusive drops. Be first to know — always.</p>
+    <div id="mlb2-41679917" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41679917">
+      <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+        <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+          <div class="ml-form-embedContent" style="display:none;"></div>
+          <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/subscribe" data-code="" method="post" target="_blank">
+            <div class="ml-form-formContent horozintalForm">
+              <div class="ml-form-horizontalRow">
+                <div class="ml-input-horizontal"><div style="width:100%;" class="horizontal-fields">
+                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                    <input aria-label="email" type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email">
                   </div>
+                </div></div>
+                <div class="ml-button-horizontal primary">
+                  <button type="submit" class="primary">Subscribe →</button>
+                  <button disabled="disabled" style="display:none;" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
                 </div>
-                <input type="hidden" name="ml-submit" value="1">
-                <div class="ml-mobileButton-horizontal">
-                  <button type="submit" class="primary">Subscribe</button>
-                </div>
-                <input type="hidden" name="anticsrf" value="true">
-              </form>
-            </div>
-            <div class="ml-form-successBody row-success" style="display:none;">
-              <div class="ml-form-successContent">
-                <h4>You're in! 🎉</h4>
-                <p>Thanks for subscribing. Stay tuned.</p>
               </div>
             </div>
-          </div>
+            <input type="hidden" name="ml-submit" value="1">
+            <div class="ml-mobileButton-horizontal"><button type="submit" class="primary">Subscribe →</button></div>
+            <input type="hidden" name="anticsrf" value="true">
+          </form>
         </div>
-      </div>
+        <div class="ml-form-successBody row-success" style="display:none;">
+          <div class="ml-form-successContent"><h4>You're in</h4><p>Thanks for subscribing. Stay tuned.</p></div>
+        </div>
+      </div></div>
     </div>
   </div>
-</section>
-
-<!-- BOOKING -->
-<section class="booking-section" id="booking">
-  <div class="booking-inner">
-    <div class="booking-info">
-      <span class="section-label">Work Together</span>
-      <h2 class="section-title">Book Calvin Priice</h2>
-      <p>Available for concerts, private events, features, collaborations, and brand partnerships. Let's build something real.</p>
-      <div class="contact-item">
-        <div class="contact-label">Booking</div>
-        <div class="contact-val"><a href="mailto:booking@calvinpriice.com">booking@calvinpriice.com</a></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Music &amp; Features</div>
-        <div class="contact-val"><a href="mailto:music@calvinpriice.com">music@calvinpriice.com</a></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">General</div>
-        <div class="contact-val"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></div>
-      </div>
-      <a href="epk.html" class="btn-ghost" style="margin-top:8px;">View Press Kit →</a>
-    </div>
-    <form class="booking-form" id="booking-form" onsubmit="handleBooking(event)">
-      <div class="f-row">
-        <input class="f-input" type="text" name="name" placeholder="Your name" required>
-        <input class="f-input" type="email" name="email" placeholder="Email address" required>
-      </div>
-      <div class="f-row">
-        <input class="f-input" type="text" name="event-type" placeholder="Event type">
-        <input class="f-input" type="text" name="date" placeholder="Date / Timeframe">
-      </div>
-      <div class="f-group">
-        <input class="f-input" type="text" name="location" placeholder="Location / Venue">
-      </div>
-      <div class="f-group">
-        <textarea class="f-input f-textarea" name="message" placeholder="Tell me more about the event or project..."></textarea>
-      </div>
-      <button class="f-submit" type="submit">Send Inquiry</button>
-      <div class="f-success" id="f-success">Inquiry sent! We'll be in touch soon.</div>
+  <div class="book">
+    <span class="eyebrow">// Booking</span>
+    <h3>Book Calvin Priice</h3>
+    <p>Available for concerts, private events, features, collaborations, and brand partnerships. Let's build something real.</p>
+    <div class="contact-row"><span class="contact-k">Booking</span><span class="contact-v"><a href="mailto:booking@calvinpriice.com">booking@calvinpriice.com</a></span></div>
+    <div class="contact-row"><span class="contact-k">Music</span><span class="contact-v"><a href="mailto:music@calvinpriice.com">music@calvinpriice.com</a></span></div>
+    <div class="contact-row"><span class="contact-k">General</span><span class="contact-v"><a href="mailto:info@calvinpriice.com">info@calvinpriice.com</a></span></div>
+    <form class="book-form" id="booking-form" onsubmit="handleBooking(event)">
+      <div class="frow"><div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div><div class="field"><label>Email</label><input type="email" name="email" placeholder="Email address" required></div></div>
+      <div class="frow"><div class="field"><label>Event type</label><input type="text" name="event-type" placeholder="Concert / feature / event"></div><div class="field"><label>Date</label><input type="text" name="date" placeholder="Timeframe"></div></div>
+      <div class="field"><label>Location</label><input type="text" name="location" placeholder="Location / venue"></div>
+      <div class="field"><label>Message</label><textarea name="message" placeholder="Tell me about the event or project…"></textarea></div>
+      <button class="submit" type="submit">Send Inquiry →</button>
+      <div class="fsuccess" id="f-success">Inquiry sent — we'll be in touch soon.</div>
     </form>
   </div>
-</section>
+</div></div></section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">CALVIN PRIICE</div>
-  <div class="footer-links">
-    <a href="epk.html">Press Kit</a>
-    <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank">Spotify</a>
-    <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank">Apple Music</a>
-    <a href="https://instagram.com/calvinpriice" target="_blank">Instagram</a>
-    <a href="https://www.youtube.com/@CalvinPriice" target="_blank">YouTube</a>
-    <a href="https://www.facebook.com/CalvinPriiceMusic/" target="_blank">Facebook</a>
-    <a href="https://x.com/calvinpriice" target="_blank">X</a>
-    <a href="https://soundcloud.com/calvinpriice" target="_blank">SoundCloud</a>
-    <a href="https://www.deezer.com/us/artist/14244877" target="_blank">Deezer</a>
-    <a href="https://www.shazam.com/en-us/artist/calvin-priice/1354959639" target="_blank">Shazam</a>
+<footer class="foot"><div class="wrap">
+  <div class="foot-word">Calvin Priice</div>
+  <div class="foot-cols">
+    <div class="foot-col"><h4>Listen</h4>
+      <a href="https://open.spotify.com/artist/55Z3Xi6ID6z799AyGHjr6u" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/calvin-priice/1354959639" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://www.youtube.com/@CalvinPriice" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://soundcloud.com/calvinpriice" target="_blank" rel="noopener">SoundCloud</a>
+      <a href="https://www.deezer.com/us/artist/14244877" target="_blank" rel="noopener">Deezer</a>
+    </div>
+    <div class="foot-col"><h4>Follow</h4>
+      <a href="https://instagram.com/calvinpriice" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/CalvinPriiceMusic/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/calvinpriice" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="https://www.shazam.com/en-us/artist/calvin-priice/1354959639" target="_blank" rel="noopener">Shazam</a>
+    </div>
+    <div class="foot-col"><h4>Site</h4>
+      <a href="#catalog">Music</a>
+      <a href="#about">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/vlog.html">Vlog</a>
+      <a href="/epk.html">Press Kit</a>
+    </div>
+    <div class="foot-col"><h4>Studio</h4>
+      <p>Calvin Priice<br>The Bronx, New York<br>booking@calvinpriice.com</p>
+    </div>
   </div>
-  <div class="footer-copy">© <span id="yr">2026</span> Calvin Priice. All rights reserved.</div>
-</footer>
+  <div class="foot-bottom">
+    <span>© <span id="yr">2026</span> Calvin Priice — All rights reserved</span>
+    <span>Bronx, NY · Multi-genre · Est. 2018</span>
+  </div>
+</div></footer>
 
 <script>
-// Keep footer year current
+// year
 document.getElementById('yr').textContent=new Date().getFullYear();
-
-// Only animate the marquee while it's on screen (saves main-thread work during load)
-(function(){
-  var track=document.querySelector('.marquee-track'), sec=document.querySelector('.marquee-section');
-  if(track&&sec&&'IntersectionObserver'in window){
-    track.style.animationPlayState='paused';
-    new IntersectionObserver(function(es){es.forEach(function(e){track.style.animationPlayState=e.isIntersecting?'running':'paused';});}).observe(sec);
-  }
-})();
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
-  });
-});
-
-// Click-to-load YouTube facades
-document.querySelectorAll('.video-item[data-yt]').forEach(item=>{
+// smooth scroll for in-page anchors
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+// YouTube facades — load on click
+document.querySelectorAll('.vid[data-yt]').forEach(item=>{
   item.addEventListener('click',()=>{
     const id=item.getAttribute('data-yt');
-    const iframe=document.createElement('iframe');
-    iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1';
-    iframe.title='Calvin Priice video';
-    iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.setAttribute('allowfullscreen','');
-    iframe.referrerPolicy='strict-origin-when-cross-origin';
-    item.innerHTML='';
-    item.appendChild(iframe);
+    const f=document.createElement('iframe');
+    f.src='https://www.youtube.com/embed/'+id+'?autoplay=1';
+    f.title='Calvin Priice video';
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.setAttribute('allowfullscreen','');
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    item.innerHTML='';item.appendChild(f);
   });
 });
-
-// Booking form
+// booking form -> mailto
 function handleBooking(e){
   e.preventDefault();
   const form=document.getElementById('booking-form');
@@ -627,42 +331,12 @@ function handleBooking(e){
   window.open('mailto:booking@calvinpriice.com?subject='+subject+'&body='+body);
   document.getElementById('f-success').style.display='block';
 }
-
-// Fade in on scroll
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.1});
-document.querySelectorAll('.section-label,.section-title,.about-quote,.about-body,.contact-item').forEach(el=>{
-  el.style.opacity='0';
-  el.style.transform='translateY(24px)';
-  el.style.transition='opacity 0.7s ease,transform 0.7s ease';
-  observer.observe(el);
-});
-
-// MailerLite
-function ml_webform_success_41679917(){
-  var $=ml_jQuery||jQuery;
-  $('.ml-subscribe-form-41679917 .row-success').show();
-  $('.ml-subscribe-form-41679917 .row-form').hide();
-}
+// MailerLite success handler
+function ml_webform_success_41679917(){var $=window.ml_jQuery||window.jQuery;$('.ml-subscribe-form-41679917 .row-success').show();$('.ml-subscribe-form-41679917 .row-form').hide();}
 </script>
-
 <script>
-// Lazy-load MailerLite (off the critical path) — on first interaction, or after idle.
-// The subscribe form posts normally without JS; the script only enhances the inline success state.
-(function(){
-  var loaded=false;
-  function loadML(){
-    if(loaded)return; loaded=true;
-    var s=document.createElement('script');
-    s.src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b";
-    document.body.appendChild(s);
-    fetch("https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/takel");
-  }
-  ['pointerdown','keydown','touchstart','scroll'].forEach(function(e){
-    window.addEventListener(e, loadML, {once:true, passive:true});
-  });
-  // No timer: any real subscriber focuses the input first (fires pointerdown),
-  // which loads the script in time. Keeps it fully off the no-interaction load path.
-})();
+// Lazy-load MailerLite enhancer on first interaction (form posts fine without it)
+(function(){var loaded=false;function loadML(){if(loaded)return;loaded=true;var s=document.createElement('script');s.src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b";document.body.appendChild(s);fetch("https://assets.mailerlite.com/jsonp/2373337/forms/188235169780467456/takel");}['pointerdown','keydown','touchstart','scroll'].forEach(function(e){window.addEventListener(e,loadML,{once:true,passive:true});});})();
 </script>
 </body>
 </html>
