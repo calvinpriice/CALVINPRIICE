@@ -266,6 +266,37 @@ img{display:block;max-width:100%;}
 .gallery a:hover img{transform:scale(1.04);filter:grayscale(0);}
 .note{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:16px;}
 
+/* ---- vlog episode ---- */
+.ep-stage{margin-top:20px;}
+.ep-video-wrap{position:relative;background:#000;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--ink);}
+.ep-video-wrap video{width:100%;height:100%;display:block;background:#000;}
+.ep-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;background:linear-gradient(to top,rgba(16,16,16,0.35),rgba(16,16,16,0.05));border:none;padding:0;width:100%;transition:opacity .25s;}
+.ep-overlay[hidden]{display:none;}
+.ep-overlay-btn{width:78px;height:78px;border-radius:50%;background:rgba(16,16,16,0.55);border:1px solid var(--surface);display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.ep-overlay:hover .ep-overlay-btn{background:var(--accent);border-color:var(--accent);transform:scale(1.06);}
+.ep-overlay svg{width:26px;height:26px;fill:var(--surface);margin-left:4px;transition:fill .2s;}
+.ep-overlay:hover svg{fill:var(--accent-ink);}
+.ep-note{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;}
+.ep-body{max-width:760px;margin:0 auto;padding:46px 0 60px;}
+.ep-meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:18px;}
+.ep-date{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.ep-tag{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 8px;}
+.ep-title{font-family:var(--exp);font-weight:900;font-size:clamp(2.4rem,6vw,4.2rem);line-height:0.9;letter-spacing:-0.02em;text-transform:uppercase;margin-bottom:28px;text-wrap:balance;}
+.ep-lead{font-family:var(--sans);font-weight:500;font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.5;color:var(--ink);border-left:3px solid var(--accent);padding-left:22px;margin-bottom:34px;}
+.ep-body p{font-size:17px;line-height:1.75;color:#26261f;margin-bottom:24px;}
+.ep-body p a{color:var(--ink);border-bottom:1px solid var(--accent);}
+.ep-body p a:hover{color:var(--accent);}
+.ep-transcript{margin-top:44px;border-top:1px solid var(--line);padding-top:28px;}
+.ep-transcript summary{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;}
+.ep-transcript summary::-webkit-details-marker{display:none;}
+.ep-transcript summary::after{content:"+";font-size:16px;color:var(--accent);}
+.ep-transcript[open] summary::after{content:"–";}
+.ep-transcript-body p{font-size:15px;line-height:1.9;color:var(--muted);margin:18px 0;}
+.ep-t{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--accent);margin-right:12px;}
+.ep-more{max-width:760px;margin:0 auto;padding:0 0 40px;}
+.ep-more a{display:block;font-family:var(--exp);font-weight:800;font-size:clamp(1.4rem,3vw,2rem);text-transform:uppercase;letter-spacing:-0.01em;padding:20px 0;border-top:1px solid var(--line);transition:color .15s;}
+.ep-more a:hover{color:var(--accent);}
+
 /* ---- vlog empty ---- */
 .vempty{border:1px dashed var(--line-2);padding:80px 40px;text-align:center;margin:40px 0;}
 .vempty h2{font-family:var(--exp);font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:18px;}
