@@ -65,7 +65,7 @@
 
 <!-- STATUS BAR -->
 <div class="topbar"><div class="wrap">
-  <span class="mono"><span class="dot"></span>Online — new music 2026</span>
+  <span class="mono"><span class="dot"></span>Online — new music 2026 <a class="live-pill" id="live-pill" href="#live" hidden>● Live on Kick</a></span>
   <span class="mono">Bronx, NY · 40.84°N 73.86°W</span>
 </div></div>
 
@@ -247,9 +247,12 @@
 <section class="sec" id="live"><div class="wrap">
   <div class="sec-head">
     <div><span class="eyebrow">// Live</span><h2>Streaming on Kick</h2></div>
-    <span class="idx">Live channel — kick.com/calvinpriice</span>
+    <span class="idx live-status" id="live-status">Live channel — kick.com/calvinpriice</span>
   </div>
-  <div class="vid" data-kick="calvinpriice"><span class="play" aria-label="Load live stream"></span><span class="vcap">live — kick.com/calvinpriice · click to load the player</span></div>
+  <div class="live-grid">
+    <div class="vid" data-kick="calvinpriice"><span class="play" aria-label="Load live stream"></span><span class="vcap">click to load the stream + chat</span></div>
+    <div class="live-chat" id="live-chat"><span class="vcap">chat — opens with the stream</span></div>
+  </div>
   <div class="cat-foot"><a href="https://kick.com/calvinpriice" target="_blank" rel="noopener" class="linkarrow">Follow on Kick ↗</a></div>
 </div></section>
 
@@ -373,18 +376,36 @@ document.querySelectorAll('.vid[data-yt]').forEach(item=>{
     item.innerHTML='';item.appendChild(f);
   });
 });
-// Kick live facade — load on click
-document.querySelectorAll(".vid[data-kick]").forEach(item=>{
-  item.addEventListener("click",()=>{
-    const ch=item.getAttribute("data-kick");
-    const f=document.createElement("iframe");
-    f.src="https://player.kick.com/"+ch+"?autoplay=true";
-    f.title="Calvin Priice live on Kick";
-    f.allow="autoplay; fullscreen; picture-in-picture";
-    f.setAttribute("allowfullscreen","");
-    item.innerHTML="";item.appendChild(f);
-  });
-});
+// Kick: live status badge + combined player/chat facade
+(function(){
+  const CH='calvinpriice';
+  const vid=document.querySelector('.vid[data-kick]'), chat=document.getElementById('live-chat');
+  const st=document.getElementById('live-status'), pill=document.getElementById('live-pill');
+  let loaded=false;
+  function load(){
+    if(loaded)return; loaded=true;
+    const f=document.createElement('iframe');
+    f.src='https://player.kick.com/'+CH+'?autoplay=true'; f.title='Calvin Priice live on Kick';
+    f.allow='autoplay; fullscreen; picture-in-picture'; f.setAttribute('allowfullscreen','');
+    vid.innerHTML=''; vid.appendChild(f);
+    const c=document.createElement('iframe');
+    c.src='https://kick.com/popout/'+CH+'/chat'; c.title='Kick chat';
+    chat.innerHTML=''; chat.appendChild(c);
+  }
+  if(vid)vid.addEventListener('click',load);
+  if(chat)chat.addEventListener('click',load);
+  // live status (Kick API allows this origin)
+  fetch('https://kick.com/api/v2/channels/'+CH,{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{
+    if(!d)return;
+    const ls=d.livestream;
+    if(ls){
+      const t=(ls.session_title||'').trim(), v=ls.viewer_count;
+      if(st){st.textContent='● Live now'+(t?' — '+t:'')+(typeof v==='number'?' · '+v+' watching':'');st.classList.add('on');}
+      if(pill)pill.hidden=false;
+      const cap=vid&&vid.querySelector('.vcap'); if(cap)cap.textContent='● live now · click to watch here';
+    }else if(st){ st.textContent='Offline right now — follow on Kick for the next one'; }
+  }).catch(()=>{});
+})();
 // booking form -> mailto
 function handleBooking(e){
   e.preventDefault();
