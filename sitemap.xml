@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://calvinpriice.com/vlog.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -129,6 +129,30 @@
   <url>
     <loc>https://calvinpriice.com/vlog/trail-ride.html</loc>
     <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calvinpriice.com/vlog/nyc-poster-run.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calvinpriice.com/vlog/road-to-san-gennaro.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calvinpriice.com/vlog/san-gennaro-carnival-games.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calvinpriice.com/vlog/san-gennaro-eats-and-flight-home.html</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

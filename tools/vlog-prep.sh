@@ -11,6 +11,9 @@
 #   --srt file.srt    also convert a Descript/whatever SRT into captions (.vtt)
 #   --preset medium   x264 preset (default slow = smallest file, slowest encode;
 #                     use "medium" or "fast" when you'd rather not wait)
+#   --start 390.2     trim: start at this many seconds into the source
+#   --end 817.2       trim: stop here (use both to cut one part out of a long
+#                     edit; frame-accurate, no intermediate file)
 #
 # What it does:
 #   1. tone-maps HDR (iPhone) footage down to SDR so it isn't washed out
@@ -37,7 +40,7 @@ if [ $# -lt 2 ]; then
 fi
 
 INPUT="$1"; SLUG="$2"; shift 2
-HEIGHT=720; MAX_MB=48; POSTER_AT="00:00:03"; SRT=""; PRESET="slow"
+HEIGHT=720; MAX_MB=48; POSTER_AT="00:00:03"; SRT=""; PRESET="slow"; START=""; END=""
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -46,6 +49,8 @@ while [ $# -gt 0 ]; do
     --poster) POSTER_AT="$2"; shift 2 ;;
     --srt)    SRT="$2"; shift 2 ;;
     --preset) PRESET="$2"; shift 2 ;;
+    --start)  START="$2"; shift 2 ;;
+    --end)    END="$2"; shift 2 ;;
     *) echo "unknown option: $1" >&2; exit 1 ;;
   esac
 done
@@ -60,6 +65,14 @@ mkdir -p "$ROOT/videos" "$ROOT/images/vlog"
 # ---- probe -----------------------------------------------------------------
 DUR=$("$FFPROBE" -v error -show_entries format=duration -of csv=p=0 "$INPUT")
 TRC=$("$FFPROBE" -v error -select_streams v:0 -show_entries stream=color_transfer -of csv=p=0 "$INPUT" || echo "")
+# trimmed part: seek before -i (frame-accurate when re-encoding), cap length
+TRIM=()
+if [ -n "$START" ] || [ -n "$END" ]; then
+  S0="${START:-0}"; S1="${END:-$DUR}"
+  DUR=$(awk -v a="$S0" -v b="$S1" 'BEGIN{printf "%.3f", b-a}')
+  TRIM=(-ss "$S0" -t "$DUR")
+  echo "  trim      : ${S0}s -> ${S1}s"
+fi
 DUR_INT=$(printf '%.0f' "$DUR")
 
 echo "  source    : $(basename "$INPUT")"
@@ -86,7 +99,7 @@ COMMON=(-c:v libx264 -preset "$PRESET" -profile:v high -level 4.0
 # ---- pass 1: quality-based -------------------------------------------------
 echo ""
 echo "  encoding (crf 26, ${HEIGHT}p, preset $PRESET) ..."
-"$FFMPEG" -hide_banner -loglevel error -stats -y -i "$INPUT" \
+"$FFMPEG" -hide_banner -loglevel error -stats -y ${TRIM[@]+"${TRIM[@]}"} -i "$INPUT" \
   -vf "$VF" -crf 26 "${COMMON[@]}" "$OUT"
 
 SIZE_MB=$(awk -v b="$(stat -f%z "$OUT")" 'BEGIN{printf "%.1f", b/1048576}')
@@ -97,9 +110,9 @@ if awk -v s="$SIZE_MB" -v m="$MAX_MB" 'BEGIN{exit !(s>m)}'; then
   VBIT=$(awk -v m="$MAX_MB" -v d="$DUR" 'BEGIN{printf "%d", ((m*8*1048576)-(128000*d))/d/1000}')
   echo "  over ${MAX_MB} MB -> two-pass re-encode at ${VBIT}k to fit"
   PASSLOG="$(mktemp -t vlogpass)"
-  "$FFMPEG" -hide_banner -loglevel error -stats -y -i "$INPUT" -vf "$VF" \
+  "$FFMPEG" -hide_banner -loglevel error -stats -y ${TRIM[@]+"${TRIM[@]}"} -i "$INPUT" -vf "$VF" \
     -c:v libx264 -preset "$PRESET" -b:v "${VBIT}k" -pass 1 -passlogfile "$PASSLOG" -an -f null /dev/null
-  "$FFMPEG" -hide_banner -loglevel error -stats -y -i "$INPUT" -vf "$VF" \
+  "$FFMPEG" -hide_banner -loglevel error -stats -y ${TRIM[@]+"${TRIM[@]}"} -i "$INPUT" -vf "$VF" \
     -b:v "${VBIT}k" -pass 2 -passlogfile "$PASSLOG" "${COMMON[@]}" "$OUT"
   rm -f "$PASSLOG"*
   SIZE_MB=$(awk -v b="$(stat -f%z "$OUT")" 'BEGIN{printf "%.1f", b/1048576}')
