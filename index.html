@@ -64,6 +64,13 @@
 <body>
 
 <!-- STATUS BAR -->
+<!-- NEW-VLOG ANNOUNCEMENT: update href/text + data-key for each new episode (new key = shows again for everyone who closed the last one) -->
+<div class="announce" id="announce" data-key="vlog-san-gennaro"><div class="wrap">
+  <a class="announce-link" href="/vlog/nyc-poster-run.html"><span class="announce-tag">New vlog</span><span class="announce-text">NYC Posting &amp; the Feast of San Gennaro · 4 parts</span><span class="announce-cta">Watch Part 1 →</span></a>
+  <button class="announce-x" type="button" aria-label="Dismiss announcement">×</button>
+</div></div>
+<script>(function(){var a=document.getElementById('announce'),k='announce-closed';try{if(localStorage.getItem(k)===a.dataset.key)a.hidden=true;}catch(e){}a.querySelector('.announce-x').addEventListener('click',function(){a.hidden=true;try{localStorage.setItem(k,a.dataset.key);}catch(e){}});})();</script>
+
 <div class="topbar"><div class="wrap">
   <span class="mono"><span class="dot"></span>Online — new music 2026 <a class="live-pill" id="live-pill" href="#live" hidden>● Live on Kick</a></span>
   <span class="mono">Bronx, NY · 40.84°N 73.86°W</span>
