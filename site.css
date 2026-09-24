@@ -135,12 +135,16 @@ img{display:block;max-width:100%;}
 .about-q{font-family:var(--exp);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.04;letter-spacing:-0.01em;margin-bottom:26px;text-wrap:balance;}
 .about-q em{color:var(--accent);font-style:normal;}
 .about-body{font-size:15px;color:var(--muted);line-height:1.8;max-width:52ch;margin-bottom:16px;}
-.about-right{border-left:1px solid var(--line);}
+.about-right{border-left:1px solid var(--line);display:flex;padding:38px 0 38px 30px;}
+.about-specs{margin-top:28px;border-top:1px solid var(--line);}
+.about-specs .spec-row{padding-left:0;}
 .spec-row{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:15px 0 15px 30px;border-bottom:1px solid var(--line);align-items:baseline;}
 .spec-k{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
 .spec-v{font-family:var(--sans);font-weight:600;font-size:14px;}
-.about-photo{margin:20px 0 0 30px;border:1px solid var(--ink);background:var(--surface);}
-.about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 22%;filter:grayscale(0.15);}
+/* photo fills the text column's height exactly: the img is absolutely positioned so it adds no height of its own */
+.about-photo{flex:1;display:flex;flex-direction:column;border:1px solid var(--ink);background:var(--surface);}
+.about-photo-img{position:relative;flex:1;min-height:340px;overflow:hidden;}
+.about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:grayscale(0.15);}
 .about-photo .cap{display:flex;justify-content:space-between;padding:8px 14px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);}
 
 /* video */
@@ -376,7 +380,8 @@ img{display:block;max-width:100%;}
   .book{padding-left:0;}
   .about-left,.connect,.cat-intro{padding-right:0;}
   .about-photo,.spec-row{margin-left:0;padding-left:0;}
-  .about-right{padding-top:20px;}
+  .about-right{padding:20px 0 0;}
+  .about-photo-img{min-height:0;aspect-ratio:4/5;}
   .stream{padding-left:0;}
   .stream:hover{padding-left:10px;}
   .song2-art{border-right:none;border-bottom:1px solid var(--line);}

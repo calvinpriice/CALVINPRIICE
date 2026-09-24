@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://calvinpriice.com/</loc>
     <lastmod>2026-06-04</lastmod>
@@ -83,6 +84,16 @@
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+      <video:video>
+      <video:thumbnail_loc>https://calvinpriice.com/images/vlog/first-vlog-poster.jpg</video:thumbnail_loc>
+      <video:title>On the Road — Calvin Priice</video:title>
+      <video:description>Episode 01 of the Calvin Priice vlog. On the road: airport days and travel between cities from the Bronx multi-genre recording artist.</video:description>
+      <video:content_loc>https://calvinpriice.com/videos/first-vlog.mp4</video:content_loc>
+      <video:duration>302</video:duration>
+      <video:publication_date>2026-08-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://calvinpriice.com/">Calvin Priice</video:uploader>
+    </video:video>
   </url>
   <url>
     <loc>https://calvinpriice.com/music/dejavu.html</loc>
@@ -131,29 +142,79 @@
     <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+      <video:video>
+      <video:thumbnail_loc>https://calvinpriice.com/images/vlog/trail-ride-poster.jpg</video:thumbnail_loc>
+      <video:title>Trail Ride — Calvin Priice</video:title>
+      <video:description>Episode 02 of the Calvin Priice vlog — Trail Ride. Forty-four seconds from the saddle: a point-of-view ride down a sandy trail from the Bronx artist. Watch it here.</video:description>
+      <video:content_loc>https://calvinpriice.com/videos/trail-ride.mp4</video:content_loc>
+      <video:duration>44</video:duration>
+      <video:publication_date>2026-09-03</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://calvinpriice.com/">Calvin Priice</video:uploader>
+    </video:video>
   </url>
   <url>
     <loc>https://calvinpriice.com/vlog/nyc-poster-run.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+      <video:video>
+      <video:thumbnail_loc>https://calvinpriice.com/images/vlog/nyc-poster-run-poster.jpg</video:thumbnail_loc>
+      <video:title>NYC Poster Run — Calvin Priice</video:title>
+      <video:description>Episode 03 of the Calvin Priice vlog, part 1 of 4. Calvin Priice posters go up across New York: 14th Street, Harlem, the Lower East Side, Alphabet City. Why real-world marketing still works.</video:description>
+      <video:content_loc>https://calvinpriice.com/videos/nyc-poster-run.mp4</video:content_loc>
+      <video:duration>390</video:duration>
+      <video:publication_date>2026-09-23</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://calvinpriice.com/">Calvin Priice</video:uploader>
+    </video:video>
   </url>
   <url>
     <loc>https://calvinpriice.com/vlog/road-to-san-gennaro.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+      <video:video>
+      <video:thumbnail_loc>https://calvinpriice.com/images/vlog/road-to-san-gennaro-poster.jpg</video:thumbnail_loc>
+      <video:title>Road to San Gennaro — Calvin Priice</video:title>
+      <video:description>Episode 04 of the Calvin Priice vlog, part 2 of 4. The drive down to Little Italy, walking Grand Street past Mott, and linking up with the crew at the Feast of San Gennaro.</video:description>
+      <video:content_loc>https://calvinpriice.com/videos/road-to-san-gennaro.mp4</video:content_loc>
+      <video:duration>427</video:duration>
+      <video:publication_date>2026-09-23</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:uploader info="https://calvinpriice.com/">Calvin Priice</video:uploader>
+    </video:video>
   </url>
   <url>
     <loc>https://calvinpriice.com/vlog/san-gennaro-carnival-games.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+      <video:video>
+      <video:thumbnail_loc>https://calvinpriice.com/images/vlog/san-gennaro-carnival-games-poster.jpg</video:thumbnail_loc>
+      <video:title>Carnival Games at San Gennaro — Calvin Priice</video:title>
+      <video:description>Episode 05 of the Calvin Priice vlog, part 3 of 4. Taking on the carnival basketball game at the Feast of San Gennaro in Little Italy. Three balls, twenty dollars, one very patient game operator.</video:description>
+      <video:content_loc>https://calvinpriice.com/videos/san-gennaro-carnival-games.mp4</video:content_loc>
+      <video:duration>327</video:duration>
+      <video:publication_date>2026-09-23</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:uploader info="https://calvinpriice.com/">Calvin Priice</video:uploader>
+    </video:video>
   </url>
   <url>
     <loc>https://calvinpriice.com/vlog/san-gennaro-eats-and-flight-home.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+      <video:video>
+      <video:thumbnail_loc>https://calvinpriice.com/images/vlog/san-gennaro-eats-and-flight-home-poster.jpg</video:thumbnail_loc>
+      <video:title>Festival Eats &amp; the Flight Home — Calvin Priice</video:title>
+      <video:description>Episode 06 of the Calvin Priice vlog, part 4 of 4. Eating through the Feast of San Gennaro: Skinny Joey's cheesesteaks, a piña colada, Empanada Mamas, then the AirTrain and the flight back to Los Angeles.</video:description>
+      <video:content_loc>https://calvinpriice.com/videos/san-gennaro-eats-and-flight-home.mp4</video:content_loc>
+      <video:duration>397</video:duration>
+      <video:publication_date>2026-09-23</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:uploader info="https://calvinpriice.com/">Calvin Priice</video:uploader>
+    </video:video>
   </url>
 </urlset>
