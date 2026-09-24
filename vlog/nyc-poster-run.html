@@ -21,7 +21,9 @@
 <meta property="og:url" content="https://calvinpriice.com/vlog/nyc-poster-run.html">
 <meta property="og:title" content="NYC Poster Run — Calvin Priice">
 <meta property="og:description" content="Episode 03 of the Calvin Priice vlog, part 1 of 4. Calvin Priice posters go up across New York: 14th Street, Harlem, the Lower East Side, Alphabet City. Why real-world marketing still works.">
-<meta property="og:image" content="https://calvinpriice.com/images/vlog/nyc-poster-run-poster.jpg">
+<meta property="og:image" content="https://calvinpriice.com/images/vlog/nyc-poster-run-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Calvin Priice posters being wheatpasted onto a wall in New York City">
 <meta property="og:video" content="https://calvinpriice.com/videos/nyc-poster-run.mp4">
 <meta property="og:video:type" content="video/mp4">
@@ -30,7 +32,7 @@
 <meta name="twitter:card" content="player">
 <meta name="twitter:title" content="NYC Poster Run — Calvin Priice">
 <meta name="twitter:description" content="Episode 03 of the Calvin Priice vlog, part 1 of 4. Calvin Priice posters go up across New York: 14th Street, Harlem, the Lower East Side, Alphabet City. Why real-world marketing still works.">
-<meta name="twitter:image" content="https://calvinpriice.com/images/vlog/nyc-poster-run-poster.jpg">
+<meta name="twitter:image" content="https://calvinpriice.com/images/vlog/nyc-poster-run-share.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"VideoObject","name":"NYC Poster Run (Vlog Episode 03)","description":"Episode 03 of the Calvin Priice vlog, part 1 of 4. Calvin Priice posters go up across New York: 14th Street, Harlem, the Lower East Side, Alphabet City. Why real-world marketing still works.","thumbnailUrl":["https://calvinpriice.com/images/vlog/nyc-poster-run-poster.jpg"],"uploadDate":"2026-09-23","duration":"PT6M30S","contentUrl":"https://calvinpriice.com/videos/nyc-poster-run.mp4","embedUrl":"https://calvinpriice.com/vlog/nyc-poster-run.html","mainEntityOfPage":"https://calvinpriice.com/vlog/nyc-poster-run.html","author":{"@type":"Person","name":"Calvin Priice","url":"https://calvinpriice.com/"},"publisher":{"@type":"MusicGroup","@id":"https://calvinpriice.com/#artist","name":"Calvin Priice","url":"https://calvinpriice.com/"},"isFamilyFriendly":true,"inLanguage":"en","isPartOf":{"@type":"CreativeWorkSeries","name":"NYC Posting & the Feast of San Gennaro"},"contentLocation":{"@type":"Place","name":"New York, NY"}}
 </script>
@@ -69,9 +71,21 @@
       </video>
       <button class="ep-overlay" id="ep-overlay" type="button" aria-label="Play episode">
         <span class="ep-overlay-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="ep-overlay-label">Play video · 6:30</span>
       </button>
+      <a class="ep-toast" id="ep-toast" href="/vlog/road-to-san-gennaro.html" hidden><span class="ep-toast-k">Up next · Part 2</span><span class="ep-toast-t">Road to San Gennaro →</span></a>
+      <div class="ep-end" id="ep-end" data-next="/vlog/road-to-san-gennaro.html" hidden>
+        <div class="ep-end-k">Up next · Part 2 of 4</div>
+        <a class="ep-end-card" href="/vlog/road-to-san-gennaro.html">
+          <span class="ep-end-thumb"><img src="/images/vlog/road-to-san-gennaro-poster.jpg" alt="" width="1280" height="720" loading="lazy"><span class="ep-end-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+          <span class="ep-end-t">Road to San Gennaro</span>
+        </a>
+        <div class="ep-end-count" aria-live="polite"></div>
+        <div class="ep-end-actions"><button type="button" class="ep-end-cancel">Cancel</button><button type="button" class="ep-end-replay">Replay Part 1</button></div>
+      </div>
     </div>
     <div class="ep-note"><span>video / nyc-poster-run.mp4</span><span>Runtime 6:30</span></div>
+    <nav class="ep-seq" aria-label="Series navigation"><span class="ep-seq-prev is-empty"><span class="ep-seq-k">Part 1 of 4</span><span class="ep-seq-t">Start here</span></span><a class="ep-seq-next" href="/vlog/road-to-san-gennaro.html"><span class="ep-seq-k">Up next · Part 2 of 4</span><span class="ep-seq-t">Road to San Gennaro →</span></a></nav>
   </div>
 
   <div class="ep-body">
@@ -143,7 +157,19 @@
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
-(function(){var v=document.getElementById('ep-video'),o=document.getElementById('ep-overlay');if(!v||!o)return;o.addEventListener('click',function(){v.play();});v.addEventListener('play',function(){o.hidden=true;});v.addEventListener('ended',function(){o.hidden=false;});})();
+(function(){var v=document.getElementById('ep-video'),o=document.getElementById('ep-overlay');if(!v||!o)return;var end=document.getElementById('ep-end'),toast=document.getElementById('ep-toast');o.addEventListener('click',function(){v.play();});v.addEventListener('play',function(){o.hidden=true;});
+if(!end){v.addEventListener('ended',function(){o.hidden=false;});return;}
+/* multi-part series: up-next toast near the end, end screen with countdown to the next part */
+var url=end.dataset.next,cd=end.querySelector('.ep-end-count'),timer=null;
+function stop(){if(timer){clearInterval(timer);timer=null;}if(cd)cd.textContent='';end.classList.remove('is-counting');}
+v.addEventListener('timeupdate',function(){if(toast&&v.duration){toast.hidden=!(v.duration-v.currentTime<=20&&!v.ended);}});
+v.addEventListener('ended',function(){if(toast)toast.hidden=true;end.hidden=false;if(!url||!cd)return;var s=8;end.classList.add('is-counting');cd.textContent='Starting in '+s;timer=setInterval(function(){s--;if(s<=0){stop();location.href=url+'?autoplay=1';}else{cd.textContent='Starting in '+s;}},1000);});
+v.addEventListener('play',function(){end.hidden=true;stop();});
+var c=end.querySelector('.ep-end-cancel');if(c)c.addEventListener('click',stop);
+end.querySelector('.ep-end-replay').addEventListener('click',function(){stop();end.hidden=true;v.currentTime=0;v.play();});
+/* arrived from the previous part's countdown: try to keep playing (browser may require a tap) */
+if(/[?&]autoplay=1/.test(location.search)){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+})();
 </script>
 </body>
 </html>

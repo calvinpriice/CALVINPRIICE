@@ -29,7 +29,9 @@
 <meta property="og:url" content="https://calvinpriice.com/vlog/{{SLUG}}.html">
 <meta property="og:title" content="{{TITLE}} — Calvin Priice">
 <meta property="og:description" content="{{DESCRIPTION}}">
-<meta property="og:image" content="https://calvinpriice.com/images/vlog/{{SLUG}}-poster.jpg">
+<meta property="og:image" content="https://calvinpriice.com/images/vlog/{{SLUG}}-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{{POSTER_ALT}}">
 <meta property="og:video" content="https://calvinpriice.com/videos/{{SLUG}}.mp4">
 <meta property="og:video:type" content="video/mp4">
@@ -38,7 +40,7 @@
 <meta name="twitter:card" content="player">
 <meta name="twitter:title" content="{{TITLE}} — Calvin Priice">
 <meta name="twitter:description" content="{{DESCRIPTION}}">
-<meta name="twitter:image" content="https://calvinpriice.com/images/vlog/{{SLUG}}-poster.jpg">
+<meta name="twitter:image" content="https://calvinpriice.com/images/vlog/{{SLUG}}-share.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"VideoObject","name":"{{TITLE}}","description":"{{DESCRIPTION}}","thumbnailUrl":["https://calvinpriice.com/images/vlog/{{SLUG}}-poster.jpg"],"uploadDate":"{{ISO_DATE}}","duration":"{{ISO_DURATION}}","contentUrl":"https://calvinpriice.com/videos/{{SLUG}}.mp4","embedUrl":"https://calvinpriice.com/vlog/{{SLUG}}.html","mainEntityOfPage":"https://calvinpriice.com/vlog/{{SLUG}}.html","author":{"@type":"Person","name":"Calvin Priice","url":"https://calvinpriice.com/"},"publisher":{"@type":"MusicGroup","@id":"https://calvinpriice.com/#artist","name":"Calvin Priice","url":"https://calvinpriice.com/"},"isFamilyFriendly":true,"inLanguage":"en"}
 </script>
@@ -79,6 +81,7 @@
       </video>
       <button class="ep-overlay" id="ep-overlay" type="button" aria-label="Play episode">
         <span class="ep-overlay-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="ep-overlay-label">Play video · {{RUNTIME}}</span>
       </button>
     </div>
     <div class="ep-note"><span>video / {{SLUG}}.mp4</span><span>Runtime {{RUNTIME}}</span></div>

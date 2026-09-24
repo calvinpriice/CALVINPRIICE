@@ -21,7 +21,9 @@
 <meta property="og:url" content="https://calvinpriice.com/vlog/san-gennaro-eats-and-flight-home.html">
 <meta property="og:title" content="Festival Eats &amp; the Flight Home — Calvin Priice">
 <meta property="og:description" content="Episode 06 of the Calvin Priice vlog, part 4 of 4. Eating through the Feast of San Gennaro: Skinny Joey's cheesesteaks, a piña colada, Empanada Mamas, then the AirTrain and the flight back to Los Angeles.">
-<meta property="og:image" content="https://calvinpriice.com/images/vlog/san-gennaro-eats-and-flight-home-poster.jpg">
+<meta property="og:image" content="https://calvinpriice.com/images/vlog/san-gennaro-eats-and-flight-home-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Crowds on Mulberry Street at night during the Feast of San Gennaro in Little Italy">
 <meta property="og:video" content="https://calvinpriice.com/videos/san-gennaro-eats-and-flight-home.mp4">
 <meta property="og:video:type" content="video/mp4">
@@ -30,7 +32,7 @@
 <meta name="twitter:card" content="player">
 <meta name="twitter:title" content="Festival Eats &amp; the Flight Home — Calvin Priice">
 <meta name="twitter:description" content="Episode 06 of the Calvin Priice vlog, part 4 of 4. Eating through the Feast of San Gennaro: Skinny Joey's cheesesteaks, a piña colada, Empanada Mamas, then the AirTrain and the flight back to Los Angeles.">
-<meta name="twitter:image" content="https://calvinpriice.com/images/vlog/san-gennaro-eats-and-flight-home-poster.jpg">
+<meta name="twitter:image" content="https://calvinpriice.com/images/vlog/san-gennaro-eats-and-flight-home-share.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"VideoObject","name":"Festival Eats & the Flight Home (Vlog Episode 06)","description":"Episode 06 of the Calvin Priice vlog, part 4 of 4. Eating through the Feast of San Gennaro: Skinny Joey's cheesesteaks, a piña colada, Empanada Mamas, then the AirTrain and the flight back to Los Angeles.","thumbnailUrl":["https://calvinpriice.com/images/vlog/san-gennaro-eats-and-flight-home-poster.jpg"],"uploadDate":"2026-09-23","duration":"PT6M37S","contentUrl":"https://calvinpriice.com/videos/san-gennaro-eats-and-flight-home.mp4","embedUrl":"https://calvinpriice.com/vlog/san-gennaro-eats-and-flight-home.html","mainEntityOfPage":"https://calvinpriice.com/vlog/san-gennaro-eats-and-flight-home.html","author":{"@type":"Person","name":"Calvin Priice","url":"https://calvinpriice.com/"},"publisher":{"@type":"MusicGroup","@id":"https://calvinpriice.com/#artist","name":"Calvin Priice","url":"https://calvinpriice.com/"},"isFamilyFriendly":false,"inLanguage":"en","isPartOf":{"@type":"CreativeWorkSeries","name":"NYC Posting & the Feast of San Gennaro"},"contentLocation":{"@type":"Place","name":"New York, NY"}}
 </script>
@@ -69,9 +71,16 @@
       </video>
       <button class="ep-overlay" id="ep-overlay" type="button" aria-label="Play episode">
         <span class="ep-overlay-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="ep-overlay-label">Play video · 6:37</span>
       </button>
+      <div class="ep-end" id="ep-end" hidden>
+        <div class="ep-end-k">That's the series · 4 of 4</div>
+        <div class="ep-end-t ep-end-done">NYC Posting &amp; the Feast of San Gennaro</div>
+        <div class="ep-end-actions"><a class="ep-end-btn" href="/vlog/nyc-poster-run.html">Watch from Part 1</a><a class="ep-end-btn" href="/vlog.html">All episodes</a><button type="button" class="ep-end-replay">Replay</button></div>
+      </div>
     </div>
     <div class="ep-note"><span>video / san-gennaro-eats-and-flight-home.mp4</span><span>Runtime 6:37</span></div>
+    <nav class="ep-seq" aria-label="Series navigation"><a class="ep-seq-prev" href="/vlog/san-gennaro-carnival-games.html"><span class="ep-seq-k">← Part 3 of 4</span><span class="ep-seq-t">Carnival Games at San Gennaro</span></a><a class="ep-seq-next" href="/vlog.html"><span class="ep-seq-k">Series complete</span><span class="ep-seq-t">More episodes →</span></a></nav>
   </div>
 
   <div class="ep-body">
@@ -128,7 +137,19 @@
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
-(function(){var v=document.getElementById('ep-video'),o=document.getElementById('ep-overlay');if(!v||!o)return;o.addEventListener('click',function(){v.play();});v.addEventListener('play',function(){o.hidden=true;});v.addEventListener('ended',function(){o.hidden=false;});})();
+(function(){var v=document.getElementById('ep-video'),o=document.getElementById('ep-overlay');if(!v||!o)return;var end=document.getElementById('ep-end'),toast=document.getElementById('ep-toast');o.addEventListener('click',function(){v.play();});v.addEventListener('play',function(){o.hidden=true;});
+if(!end){v.addEventListener('ended',function(){o.hidden=false;});return;}
+/* multi-part series: up-next toast near the end, end screen with countdown to the next part */
+var url=end.dataset.next,cd=end.querySelector('.ep-end-count'),timer=null;
+function stop(){if(timer){clearInterval(timer);timer=null;}if(cd)cd.textContent='';end.classList.remove('is-counting');}
+v.addEventListener('timeupdate',function(){if(toast&&v.duration){toast.hidden=!(v.duration-v.currentTime<=20&&!v.ended);}});
+v.addEventListener('ended',function(){if(toast)toast.hidden=true;end.hidden=false;if(!url||!cd)return;var s=8;end.classList.add('is-counting');cd.textContent='Starting in '+s;timer=setInterval(function(){s--;if(s<=0){stop();location.href=url+'?autoplay=1';}else{cd.textContent='Starting in '+s;}},1000);});
+v.addEventListener('play',function(){end.hidden=true;stop();});
+var c=end.querySelector('.ep-end-cancel');if(c)c.addEventListener('click',stop);
+end.querySelector('.ep-end-replay').addEventListener('click',function(){stop();end.hidden=true;v.currentTime=0;v.play();});
+/* arrived from the previous part's countdown: try to keep playing (browser may require a tap) */
+if(/[?&]autoplay=1/.test(location.search)){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+})();
 </script>
 </body>
 </html>
