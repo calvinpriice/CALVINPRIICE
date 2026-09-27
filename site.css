@@ -420,3 +420,15 @@ img{display:block;max-width:100%;}
 .live-pill:hover{background:var(--accent);color:#fff;}
 .live-status.on{color:var(--accent);}
 @media (max-width:820px){.live-grid{grid-template-columns:1fr;}.live-grid .vid{border-right:0;border-bottom:1px solid var(--line);}.live-chat{min-height:420px;}}
+
+/* ---- song pages without lyrics + album tracklist ---- */
+.song-about{font-size:17px;line-height:1.75;color:#26261f;max-width:62ch;margin:18px 0;}
+.song-about a{color:var(--ink);border-bottom:1px solid var(--accent);}
+.song-about-note{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.tracklist{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--ink);max-width:760px;}
+.tracklist li{border-bottom:1px solid var(--line);}
+.tracklist a{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:baseline;padding:14px 4px;transition:background .15s,color .15s;}
+.tracklist a:hover{background:var(--ink);color:var(--paper);}
+.tl-n{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.tl-t{font-family:var(--exp);font-weight:800;font-size:clamp(1rem,2.2vw,1.25rem);text-transform:uppercase;letter-spacing:-0.01em;}
+.tl-r{font-family:var(--mono);color:var(--accent);}
